@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utopia2.0", "Utopia2.0\Utopia2.0.csproj", "{9C38A69C-2E0D-4389-9B97-CEAB823C04E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utopia2.0.DAL", "Utopia2.0.DAL\Utopia2.0.DAL.csproj", "{8BE5EACA-EB95-4565-AC1C-5E23881FAD1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C38A69C-2E0D-4389-9B97-CEAB823C04E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C38A69C-2E0D-4389-9B97-CEAB823C04E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C38A69C-2E0D-4389-9B97-CEAB823C04E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C38A69C-2E0D-4389-9B97-CEAB823C04E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BE5EACA-EB95-4565-AC1C-5E23881FAD1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BE5EACA-EB95-4565-AC1C-5E23881FAD1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BE5EACA-EB95-4565-AC1C-5E23881FAD1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BE5EACA-EB95-4565-AC1C-5E23881FAD1E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D5DC266-63E7-4EC0-B3F5-F2B5F443E3F4}
+	EndGlobalSection
+EndGlobal

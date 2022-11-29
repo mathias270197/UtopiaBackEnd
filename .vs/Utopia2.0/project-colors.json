@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "9c38a69c-2e0d-4389-9b97-ceab823c04e5": {
+      "ProjectGuid": "9c38a69c-2e0d-4389-9b97-ceab823c04e5",
+      "DisplayName": "Utopia2.0",
+      "ColorIndex": 0
+    },
+    "8be5eaca-eb95-4565-ac1c-5e23881fad1e": {
+      "ProjectGuid": "8be5eaca-eb95-4565-ac1c-5e23881fad1e",
+      "DisplayName": "Utopia2.0.DAL",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
