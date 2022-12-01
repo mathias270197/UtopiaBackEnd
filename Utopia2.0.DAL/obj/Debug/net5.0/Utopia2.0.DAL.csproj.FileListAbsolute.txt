@@ -1,0 +1,5 @@
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.csproj.AssemblyReference.cache
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.AssemblyInfoInputs.cache
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.AssemblyInfo.cs
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.csproj.CoreCompileInputs.cache

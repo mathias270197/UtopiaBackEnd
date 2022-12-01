@@ -26,3 +26,31 @@ D:\Utopia\backend\Utopia2.0\Utopia2.0\obj\Debug\net5.0\Utopia2.0.dll
 D:\Utopia\backend\Utopia2.0\Utopia2.0\obj\Debug\net5.0\ref\Utopia2.0.dll
 D:\Utopia\backend\Utopia2.0\Utopia2.0\obj\Debug\net5.0\Utopia2.0.pdb
 D:\Utopia\backend\Utopia2.0\Utopia2.0\obj\Debug\net5.0\Utopia2.0.genruntimeconfig.cache
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\bin\Debug\net5.0\appsettings.json
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\bin\Debug\net5.0\Utopia2.0.exe
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\bin\Debug\net5.0\Utopia2.0.deps.json
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\bin\Debug\net5.0\Utopia2.0.runtimeconfig.json
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\bin\Debug\net5.0\Utopia2.0.runtimeconfig.dev.json
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\bin\Debug\net5.0\Utopia2.0.dll
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\bin\Debug\net5.0\ref\Utopia2.0.dll
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\bin\Debug\net5.0\Utopia2.0.pdb
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\Utopia2.0.csproj.AssemblyReference.cache
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\Utopia2.0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\Utopia2.0.AssemblyInfoInputs.cache
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\Utopia2.0.AssemblyInfo.cs
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\Utopia2.0.csproj.CoreCompileInputs.cache
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\Utopia2.0.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\Utopia2.0.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\scopedcss\bundle\Utopia2.0.styles.css
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\staticwebassets\Utopia2.0.StaticWebAssets.Manifest.cache
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\Utopia2.0.RazorTargetAssemblyInfo.cache
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\Utopia2.0.csproj.CopyComplete
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\Utopia2.0.dll
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\ref\Utopia2.0.dll
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\Utopia2.0.pdb
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\Utopia2.0.genruntimeconfig.cache
