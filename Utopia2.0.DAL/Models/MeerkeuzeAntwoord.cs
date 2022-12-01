@@ -4,10 +4,10 @@ namespace Utopia2._0.Models
 {
     public class MeerkeuzeAntwoord
     {
-        public int MeerKeuzeAntwoordID { get; set; }
+        public int Id { get; set; }
         public string TextueelAntwoord { get; set; }
         public bool Correct { get; set; }
-        public int VraagID { get; set; }
+        public int VraagId { get; set; }
         
         public Vraag Vraag { get; set; }
 

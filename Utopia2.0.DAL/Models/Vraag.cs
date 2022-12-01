@@ -4,9 +4,9 @@ namespace Utopia2._0.Models
 {
     public class Vraag
     {
-        public int VraagID { get; set; }
+        public int Id { get; set; }
         public string TextueleVraag { get; set; }
-        public int GebouwID { get; set; }
+        public int GebouwId { get; set; }
 
         public Gebouw Gebouw { get; set; }
 
