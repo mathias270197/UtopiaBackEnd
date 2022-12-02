@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "jgOHoxP4LX7Nqb3KsWk2lm9BtTwsERykaV10SkmLTeLWhLyPzO9+wr7t4dmZw2igfLv2vam0y6quWzSI/7eSrQ==",
-=======
   "dgSpecHash": "g0uZmuvcHNe5ZdMNE42j6VLKMhU5A0BVT2MvgSqP9h9aNMcrzr0x1ZxlGGhaLpFIPD3HuIGD0yHnlVdrYo0cVA==",
->>>>>>> 3ae2c814f4640dcc084fc5068c1ed36fa7571798
   "success": true,
   "projectFilePath": "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj",
   "expectedPackageFiles": [
