@@ -4,6 +4,16 @@
     "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend\\UtopiaBackEnd\\Utopia2.0\\Utopia2.0.csproj": {}
   },
   "projects": {
+<<<<<<< HEAD
+    "D:\\Utopia\\backend\\Utopia2.0\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Utopia\\backend\\Utopia2.0\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj",
+        "projectName": "Utopia2.0.DAL",
+        "projectPath": "D:\\Utopia\\backend\\Utopia2.0\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj",
+        "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
+        "outputPath": "D:\\Utopia\\backend\\Utopia2.0\\Utopia2.0.DAL\\obj\\",
+=======
     "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -12,6 +22,7 @@
         "projectPath": "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj",
         "packagesPath": "C:\\Users\\stijn\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend\\UtopiaBackEnd\\Utopia2.0.DAL\\obj\\",
+>>>>>>> 3ae2c814f4640dcc084fc5068c1ed36fa7571798
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\stijn\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -80,6 +91,19 @@
         }
       }
     },
+<<<<<<< HEAD
+    "D:\\Utopia\\backend\\Utopia2.0\\Utopia2.0\\Utopia2.0.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Utopia\\backend\\Utopia2.0\\Utopia2.0\\Utopia2.0.csproj",
+        "projectName": "Utopia2.0",
+        "projectPath": "D:\\Utopia\\backend\\Utopia2.0\\Utopia2.0\\Utopia2.0.csproj",
+        "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
+        "outputPath": "D:\\Utopia\\backend\\Utopia2.0\\Utopia2.0\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
     "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend\\UtopiaBackEnd\\Utopia2.0\\Utopia2.0.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -91,6 +115,7 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\stijn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 3ae2c814f4640dcc084fc5068c1ed36fa7571798
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -104,8 +129,13 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+<<<<<<< HEAD
+              "D:\\Utopia\\backend\\Utopia2.0\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj": {
+                "projectPath": "D:\\Utopia\\backend\\Utopia2.0\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj"
+=======
               "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj": {
                 "projectPath": "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj"
+>>>>>>> 3ae2c814f4640dcc084fc5068c1ed36fa7571798
               }
             }
           }
@@ -122,13 +152,21 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
+<<<<<<< HEAD
+              "version": "[5.0.17, )"
+=======
               "version": "[5.0.12, )"
+>>>>>>> 3ae2c814f4640dcc084fc5068c1ed36fa7571798
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
+<<<<<<< HEAD
+              "version": "[5.0.17, )"
+=======
               "version": "[5.0.12, )"
+>>>>>>> 3ae2c814f4640dcc084fc5068c1ed36fa7571798
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
