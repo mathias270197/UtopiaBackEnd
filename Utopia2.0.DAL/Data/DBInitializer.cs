@@ -1,4 +1,5 @@
 ﻿using Utopia2._0.Data;
+using Utopia2._0.Models;
 
 namespace Shop.DAL.Models
 {
@@ -7,7 +8,29 @@ namespace Shop.DAL.Models
         public static void Initialize(UtopiaContext context)
         {
             context.Database.EnsureCreated();
+            //Add Stations
+            Station station1 = new Station { X = 5.5, Y = 7.8 };
+            Line line1 = new Line { Color = "blue", Faculty = "Informatiewetenschappen" };
+            context.Add(station1);
+            context.Add(line1);
+            context.SaveChanges();
 
+            Building building1 = new Building { GraduateProgram = "Toegapse informatica", LineId = 1, StationId = 1 };
+            context.Add(building1);
+            context.SaveChanges();
+            Person person1 = new Person { Username = "Mathias", RandomKey = 2578528 };
+            context.Add(person1);
+            context.SaveChanges();
+            Question question1 = new Question { TextualQuestion = "wat is blabla?", BuildingId = 1};
+            context.Add(question1);
+            context.SaveChanges();
+            MultipleChoiceAnswer multipleChoiceAnswer1 = new MultipleChoiceAnswer { TextualAnswer = "dit is het antwoord", Correct = true, QuestionId = 1 };
+            context.Add(multipleChoiceAnswer1);
+            context.SaveChanges();
+            Answer answer1 = new Answer { MultipleChoiceAnswerId = 1, PersonId = 1};
+            context.Add(answer1);
+            context.SaveChanges();
+            
             // Look for any products.
             /*if (context.Products.Any())
             {
