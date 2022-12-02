@@ -23,14 +23,22 @@ namespace Utopia2._0.Controllers
 
         // GET: api/Stations
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Station>>> GetStations()
+        public async Task<ActionResult<IEnumerable<ApiStation>>> GetStations()
         {
-            return await _context.Stations.ToListAsync();
+            return await _context.Stations
+                .Select(s => new ApiStation
+                { 
+                    Id = s.Id,
+                    X = s.X,
+                    Y =s.Y
+                })
+                .ToListAsync();
         }
+
 
         // GET: api/Stations/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Station>> GetStation(int id)
+        public async Task<ActionResult<Models.Station>> GetStation(int id)
         {
             var station = await _context.Stations.FindAsync(id);
 
@@ -45,7 +53,7 @@ namespace Utopia2._0.Controllers
         // PUT: api/Stations/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutStation(int id, Station station)
+        public async Task<IActionResult> PutStation(int id, Models.Station station)
         {
             if (id != station.Id)
             {
@@ -76,7 +84,7 @@ namespace Utopia2._0.Controllers
         // POST: api/Stations
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Station>> PostStation(Station station)
+        public async Task<ActionResult<Models.Station>> PostStation(Models.Station station)
         {
             _context.Stations.Add(station);
             await _context.SaveChangesAsync();
