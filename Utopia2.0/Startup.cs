@@ -13,10 +13,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Utopia2._0.Data;
-<<<<<<< HEAD
-using Utopia2.DAL.Models;
-=======
->>>>>>> 3ae2c814f4640dcc084fc5068c1ed36fa7571798
 
 namespace Utopia2._0
 {
@@ -44,7 +40,7 @@ namespace Utopia2._0
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UtopiaContext context)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -63,8 +59,6 @@ namespace Utopia2._0
             {
                 endpoints.MapControllers();
             });
-
-            DBInitializer.Initialize(context);
         }
     }
 }
