@@ -13,7 +13,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Utopia2._0.Data;
+<<<<<<< HEAD
 using Utopia2.DAL.Models;
+=======
+>>>>>>> 3ae2c814f4640dcc084fc5068c1ed36fa7571798
 
 namespace Utopia2._0
 {

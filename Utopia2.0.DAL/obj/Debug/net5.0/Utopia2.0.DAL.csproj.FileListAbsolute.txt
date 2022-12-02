@@ -3,6 +3,7 @@ C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0
 C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.AssemblyInfoInputs.cache
 C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.AssemblyInfo.cs
 C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.csproj.CoreCompileInputs.cache
+<<<<<<< HEAD
 D:\Utopia\backend\Utopia2.0\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.csproj.AssemblyReference.cache
 D:\Utopia\backend\Utopia2.0\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.GeneratedMSBuildEditorConfig.editorconfig
 D:\Utopia\backend\Utopia2.0\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.AssemblyInfoInputs.cache
@@ -18,3 +19,5 @@ D:\Utopia\backend\Utopia2.0\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.dll
 D:\Utopia\backend\Utopia2.0\Utopia2.0.DAL\obj\Debug\net5.0\ref\Utopia2.0.DAL.dll
 D:\Utopia\backend\Utopia2.0\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.pdb
 D:\Utopia\backend\Utopia2.0\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.genruntimeconfig.cache
+=======
+>>>>>>> 3ae2c814f4640dcc084fc5068c1ed36fa7571798
