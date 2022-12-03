@@ -21,8 +21,7 @@ namespace Utopia2._0.Controllers
             _context = context;
         }
 
-        // GET: api/Stations
-        [HttpGet]
+        [HttpGet("GetStations")]
         public async Task<ActionResult<IEnumerable<ApiStation>>> GetStations()
         {
             return await _context.Stations
@@ -35,82 +34,93 @@ namespace Utopia2._0.Controllers
                 .ToListAsync();
         }
 
-
-        // GET: api/Stations/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Models.Station>> GetStation(int id)
+        [HttpGet("GetEscapeRoomsOfStation/{stationId}")]
+        public async Task<ActionResult<IEnumerable<ApiBuilding>>> GetEscapeRoomsOfStation(int id)
         {
-            var station = await _context.Stations.FindAsync(id);
+            var buildings = await _context.Buildings
+                .Where(b => b.StationId == id)
+                .Select(b => new ApiBuilding
+                {
+                    Id = b.Id,
+                    GraduateProgram = b.GraduateProgram,
+                    Color = b.Line.Color
+                })
+                .ToListAsync();
+            // with buildings (ID en name)
 
-            if (station == null)
+            if (buildings == null)
             {
                 return NotFound();
             }
 
-            return station;
+            return buildings;
         }
 
-        // PUT: api/Stations/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutStation(int id, Models.Station station)
-        {
-            if (id != station.Id)
-            {
-                return BadRequest();
-            }
 
-            _context.Entry(station).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!StationExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return NoContent();
-        }
 
-        // POST: api/Stations
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Models.Station>> PostStation(Models.Station station)
-        {
-            _context.Stations.Add(station);
-            await _context.SaveChangesAsync();
+        //// PUT: api/Stations/5
+        //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutStation(int id, Models.Station station)
+        //{
+        //    if (id != station.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            return CreatedAtAction("GetStation", new { id = station.Id }, station);
-        }
+        //    _context.Entry(station).State = EntityState.Modified;
 
-        // DELETE: api/Stations/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteStation(int id)
-        {
-            var station = await _context.Stations.FindAsync(id);
-            if (station == null)
-            {
-                return NotFound();
-            }
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!StationExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            _context.Stations.Remove(station);
-            await _context.SaveChangesAsync();
+        //    return NoContent();
+        //}
 
-            return NoContent();
-        }
+        //// POST: api/Stations
+        //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        //[HttpPost]
+        //public async Task<ActionResult<Models.Station>> PostStation(Models.Station station)
+        //{
+        //    _context.Stations.Add(station);
+        //    await _context.SaveChangesAsync();
 
-        private bool StationExists(int id)
-        {
-            return _context.Stations.Any(e => e.Id == id);
-        }
+        //    return CreatedAtAction("GetStation", new { id = station.Id }, station);
+        //}
+
+        //// DELETE: api/Stations/5
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> DeleteStation(int id)
+        //{
+        //    var station = await _context.Stations.FindAsync(id);
+        //    if (station == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    _context.Stations.Remove(station);
+        //    await _context.SaveChangesAsync();
+
+        //    return NoContent();
+        //}
+
+        //private bool StationExists(int id)
+        //{
+        //    return _context.Stations.Any(e => e.Id == id);
+        //}
     }
 }
