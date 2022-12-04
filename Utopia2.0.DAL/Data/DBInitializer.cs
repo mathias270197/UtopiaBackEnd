@@ -18,7 +18,7 @@ namespace Shop.DAL.Models
             Building building1 = new Building { GraduateProgram = "Toegapse informatica", LineId = 1, StationId = 1 };
             context.Add(building1);
             context.SaveChanges();
-            Person person1 = new Person { Username = "Mathias", RandomKey = 2578528 };
+            Person person1 = new Person { Username = "Mathias", RandomKey = "2578528" };
             context.Add(person1);
             context.SaveChanges();
             Question question1 = new Question { TextualQuestion = "wat is blabla?", BuildingId = 1};

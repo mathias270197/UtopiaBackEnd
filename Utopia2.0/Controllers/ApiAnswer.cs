@@ -1,8 +1,11 @@
-﻿namespace Utopia2._0.Controllers
+﻿using System.Collections.Generic;
+
+namespace Utopia2._0.Controllers
 {
     public class ApiAnswer
     {
-        public int Id { get; set; }
-        public string TextualAnswer { get; set; }
+        public List<int> MultipleChoiceAnswerIds { get; set; }
+        public string UserName { get; set; }
+        public string PersonalKey { get; set; }
     }
 }
