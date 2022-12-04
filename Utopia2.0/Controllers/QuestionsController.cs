@@ -31,7 +31,7 @@ namespace Utopia2._0.Controllers
                 {
                     Id = q.Id,
                     TextualQuestion = q.TextualQuestion,
-                    Ansers = q.MultipleChoiceAnswers.Select(a => new ApiAnswer { Id = a.Id, TextualAnswer = a.TextualAnswer }).ToList()
+                    Ansers = q.MultipleChoiceAnswers.Select(a => new ApiMultipleChoiceAnswer { Id = a.Id, TextualAnswer = a.TextualAnswer }).ToList()
                 })
                 .ToListAsync();
 
@@ -42,6 +42,30 @@ namespace Utopia2._0.Controllers
 
             return questions;
         }
+
+        [HttpPost("PostAnswers")]
+        public async Task<ActionResult<ApiCorrectAnswersAndPoints>> PostCompany([FromBody] ApiAnswer apiAnswer)
+        {
+
+            var person = await _context.Persons
+                .Where(p => (p.RandomKey == apiAnswer.PersonalKey) && (p.Username == apiAnswer.UserName))
+                .FirstOrDefaultAsync();
+
+            foreach (int multipleChoiceAnswerId in apiAnswer.MultipleChoiceAnswerIds)
+            {
+                _context.Answers.Add(new Answer { MultipleChoiceAnswerId = multipleChoiceAnswerId, PersonId = person.Id });
+                await _context.SaveChangesAsync();
+            }
+
+            //logica voor punten toevoegen
+
+            //antwoordenID's ook toevoegen
+
+            return new ApiCorrectAnswersAndPoints { CorrectAnswerIds = { 1, 2, 3 }, points = 10};
+        }
+
+
+
 
     }
 }

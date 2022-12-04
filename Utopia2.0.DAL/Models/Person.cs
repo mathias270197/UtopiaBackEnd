@@ -6,7 +6,7 @@ namespace Utopia2._0.Models
     {
         public int Id { get; set; }
         public string Username { get; set; }
-        public int RandomKey { get; set; }
+        public string RandomKey { get; set; }
 
         public ICollection<Answer> Answers { get; set; }
     }
