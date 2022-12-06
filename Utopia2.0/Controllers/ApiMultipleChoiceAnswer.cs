@@ -4,5 +4,7 @@
     {
         public int Id { get; set; }
         public string TextualAnswer { get; set; }
+
+        public bool Correct { get; set; }
     }
 }
