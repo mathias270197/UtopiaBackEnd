@@ -326,3 +326,6 @@ C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend2\UtopiaBackEnd\Utopia2.
 C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend2\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\ref\Utopia2.0.dll
 C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend2\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\Utopia2.0.pdb
 C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend2\UtopiaBackEnd\Utopia2.0\obj\Debug\net5.0\Utopia2.0.genruntimeconfig.cache
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend2\UtopiaBackEnd\Utopia2.0\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend2\UtopiaBackEnd\Utopia2.0\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend2\UtopiaBackEnd\Utopia2.0\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
