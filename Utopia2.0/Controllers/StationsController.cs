@@ -35,10 +35,10 @@ namespace Utopia2._0.Controllers
         }
 
         [HttpGet("GetEscapeRoomsOfStation/{stationId}")]
-        public async Task<ActionResult<IEnumerable<ApiBuilding>>> GetEscapeRoomsOfStation(int id)
+        public async Task<ActionResult<IEnumerable<ApiBuilding>>> GetEscapeRoomsOfStation(int stationId)
         {
             var buildings = await _context.Buildings
-                .Where(b => b.StationId == id)
+                .Where(b => b.StationId == stationId)
                 .Select(b => new ApiBuilding
                 {
                     Id = b.Id,
