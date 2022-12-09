@@ -33,10 +33,12 @@ namespace Shop.DAL.Models
                 for (int i = 1; i <= 10; i++)
                 {
                     KnownColor randomColorName = names[rd.Next(i)];
-                    string randomColor = randomColorName.ToString();
-                    //Color randomColor = Color.FromKnownColor(randomColorName);
+                    
+                    Color randomColor = Color.FromKnownColor(randomColorName);
 
-                    Line line = new Line { Color = randomColor, Faculty = "dit is een faculty" + i };
+                    string color = randomColor.ToString();
+
+                    Line line = new Line { Color = color, Faculty = "dit is een faculty" + i };
 
                     context.Add(line);
                 }
@@ -57,8 +59,9 @@ namespace Shop.DAL.Models
                 for (int i = 1; i <= 10; i++)
                 {
                     int randomNumber = rd.Next(1000000, 9999999);
+                    String random = randomNumber.ToString();
 
-                    Person person = new Person { Username = "Persoon" + i, RandomKey = randomNumber };
+                    Person person = new Person { Username = "Persoon" + i, RandomKey = random };
 
                     context.Add(person);
 
