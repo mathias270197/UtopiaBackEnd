@@ -51,7 +51,7 @@ namespace Shop.DAL.Models
             }
             if (!context.Persons.Any())
             {
-                for (int i = 1; i <= 10; i++)
+                for (int i = 1; i <= 500; i++)
                 {
                     int randomNumber = rd.Next(1000000, 9999999);
                     String random = randomNumber.ToString();
@@ -78,7 +78,7 @@ namespace Shop.DAL.Models
             }
             if (!context.MultipleChoiceAnswers.Any())
             {
-                for (int i = 1; i <= 10; i++)
+                for (int i = 1; i <= 100; i++)
                 {
                     for (int j = 1; j <= 4; j++)
                     {
@@ -91,9 +91,9 @@ namespace Shop.DAL.Models
             }
             if (!context.Answers.Any())
             {
-                for (int i = 1; i <= 10; i++)
+                for (int i = 1; i <= 1500; i++)
                 {
-                    Answer answer = new Answer { MultipleChoiceAnswerId = i, PersonId = i };
+                    Answer answer = new Answer { MultipleChoiceAnswerId = rd.Next(1, 40), PersonId = rd.Next(1,500) };
                     context.Add(answer);
                 }
                 context.SaveChanges();
