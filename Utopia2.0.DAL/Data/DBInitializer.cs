@@ -12,7 +12,7 @@ namespace Shop.DAL.Models
         public static void Initialize(UtopiaContext context)
         {
             Random rd = new Random();
-            KnownColor[] names = (KnownColor[])Enum.GetValues(typeof(KnownColor));
+            string[] colors = new string[] {"", "blue", "green", "red", "yellow" };
 
             context.Database.EnsureCreated();
             //Add Stations
@@ -30,15 +30,10 @@ namespace Shop.DAL.Models
             }
             if (!context.Lines.Any())
             {
-                for (int i = 1; i <= 10; i++)
+                for (int i = 1; i <= 4; i++)
                 {
-                    KnownColor randomColorName = names[rd.Next(i)];
-                    
-                    Color randomColor = Color.FromKnownColor(randomColorName);
-
-                    string color = randomColor.ToString();
-
-                    Line line = new Line { Color = color, Faculty = "dit is een faculty" + i };
+                   
+                    Line line = new Line { Color = colors[i], Faculty = "dit is een faculty" + i };
 
                     context.Add(line);
                 }
@@ -48,7 +43,7 @@ namespace Shop.DAL.Models
             {
                 for (int i = 1; i <= 10; i++)
                 {
-                    Building building = new Building { GraduateProgram = "dit is een gebouw" + i, LineId = i, StationId = i };
+                    Building building = new Building { GraduateProgram = "dit is een gebouw" + i, LineId = rd.Next(1, 4), StationId = i };
 
                     context.Add(building);
                 }
@@ -72,9 +67,12 @@ namespace Shop.DAL.Models
             {
                 for (int i = 1; i <= 10; i++)
                 {
-                    Question question = new Question { TextualQuestion = "dit is een vraag" + i, BuildingId = i };
-
-                    context.Add(question);
+                    for (int j = 1; j <= 10; j++)
+                    {
+                        Question question = new Question { TextualQuestion = "dit is een vraag" + i, BuildingId = i };
+                        context.Add(question);
+                    }
+                    
                 }
                 context.SaveChanges();
             }
