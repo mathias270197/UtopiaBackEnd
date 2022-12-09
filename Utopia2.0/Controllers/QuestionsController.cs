@@ -22,7 +22,7 @@ namespace Utopia2._0.Controllers
         }
 
 
-        [HttpGet("GetEscapeRoom/{buildingID}")]
+        [HttpGet("GetEscapeRoom/{buildingId}")]
         public async Task<ActionResult<IEnumerable<ApiQuestion>>> GetEscapeRoom(int buildingId)
         {
             var questions = await _context.Questions
