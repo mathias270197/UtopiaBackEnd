@@ -29,7 +29,8 @@ namespace Utopia2._0.Controllers
                 { 
                     Id = s.Id,
                     X = s.X,
-                    Y =s.Y
+                    Y =s.Y,
+                    NumberOfBuildings = s.Buildings.Count
                 })
                 .ToListAsync();
         }

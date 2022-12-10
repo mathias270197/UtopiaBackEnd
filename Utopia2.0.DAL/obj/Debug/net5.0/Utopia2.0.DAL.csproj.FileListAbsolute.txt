@@ -48,3 +48,18 @@ D:\Utopia\backend\clone2\UtopiaBackEnd\Utopia2.0.DAL\bin\Debug\net5.0\Utopia2.0.
 D:\Utopia\backend\clone2\UtopiaBackEnd\Utopia2.0.DAL\bin\Debug\net5.0\ref\Utopia2.0.DAL.dll
 D:\Utopia\backend\clone2\UtopiaBackEnd\Utopia2.0.DAL\bin\Debug\net5.0\Utopia2.0.DAL.pdb
 D:\Utopia\backend\clone2\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.genruntimeconfig.cache
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend3\UtopiaBackEnd\Utopia2.0.DAL\bin\Debug\net5.0\Utopia2.0.DAL.deps.json
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend3\UtopiaBackEnd\Utopia2.0.DAL\bin\Debug\net5.0\Utopia2.0.DAL.runtimeconfig.json
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend3\UtopiaBackEnd\Utopia2.0.DAL\bin\Debug\net5.0\Utopia2.0.DAL.runtimeconfig.dev.json
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend3\UtopiaBackEnd\Utopia2.0.DAL\bin\Debug\net5.0\Utopia2.0.DAL.dll
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend3\UtopiaBackEnd\Utopia2.0.DAL\bin\Debug\net5.0\ref\Utopia2.0.DAL.dll
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend3\UtopiaBackEnd\Utopia2.0.DAL\bin\Debug\net5.0\Utopia2.0.DAL.pdb
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend3\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.csproj.AssemblyReference.cache
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend3\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend3\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.AssemblyInfoInputs.cache
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend3\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.AssemblyInfo.cs
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend3\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.csproj.CoreCompileInputs.cache
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend3\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.dll
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend3\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\ref\Utopia2.0.DAL.dll
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend3\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.pdb
+C:\Users\stijn\Documents\OHO_IT_4\Project 4punt0\backend3\UtopiaBackEnd\Utopia2.0.DAL\obj\Debug\net5.0\Utopia2.0.DAL.genruntimeconfig.cache
