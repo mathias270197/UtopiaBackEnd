@@ -47,6 +47,12 @@ namespace Shop.DAL.Models
 
                     context.Add(building);
                 }
+                for (int i = 1; i <= 10; i++)
+                {
+                    Building building = new Building { GraduateProgram = "dit is een gebouw" + i, LineId = rd.Next(1, 4), StationId = i };
+
+                    context.Add(building);
+                }
                 context.SaveChanges();
             }
             if (!context.Persons.Any())
