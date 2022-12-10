@@ -24,13 +24,17 @@ namespace Utopia2._0.Controllers
         [HttpGet("GetStations")]
         public async Task<ActionResult<IEnumerable<ApiStation>>> GetStations()
         {
+
+
             return await _context.Stations
                 .Select(s => new ApiStation
-                { 
+                {
                     Id = s.Id,
                     X = s.X,
-                    Y =s.Y,
-                    NumberOfBuildings = s.Buildings.Count
+                    Y = s.Y,
+                    NumberOfBuildings = s.Buildings.Count,
+                    firstBuildingId = s.Buildings.FirstOrDefault().Id,
+                    //maximum te verdienen punten nog toevoegen
                 })
                 .ToListAsync();
         }
@@ -56,72 +60,5 @@ namespace Utopia2._0.Controllers
 
             return buildings;
         }
-
-
-
-
-
-        //// PUT: api/Stations/5
-        //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> PutStation(int id, Models.Station station)
-        //{
-        //    if (id != station.Id)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    _context.Entry(station).State = EntityState.Modified;
-
-        //    try
-        //    {
-        //        await _context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!StationExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
-
-        //    return NoContent();
-        //}
-
-        //// POST: api/Stations
-        //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        //[HttpPost]
-        //public async Task<ActionResult<Models.Station>> PostStation(Models.Station station)
-        //{
-        //    _context.Stations.Add(station);
-        //    await _context.SaveChangesAsync();
-
-        //    return CreatedAtAction("GetStation", new { id = station.Id }, station);
-        //}
-
-        //// DELETE: api/Stations/5
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> DeleteStation(int id)
-        //{
-        //    var station = await _context.Stations.FindAsync(id);
-        //    if (station == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    _context.Stations.Remove(station);
-        //    await _context.SaveChangesAsync();
-
-        //    return NoContent();
-        //}
-
-        //private bool StationExists(int id)
-        //{
-        //    return _context.Stations.Any(e => e.Id == id);
-        //}
     }
 }
