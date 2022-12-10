@@ -43,7 +43,7 @@ namespace Shop.DAL.Models
             {
                 for (int i = 1; i <= 10; i++)
                 {
-                    Building building = new Building { GraduateProgram = "dit is een gebouw" + i, LineId = rd.Next(1, 4), StationId = i };
+                    Building building = new Building { GraduateProgram = "dit is een gebouw" + i, LineId = rd.Next(1, 4), StationId = rd.Next(1, 10) };
 
                     context.Add(building);
                 }
