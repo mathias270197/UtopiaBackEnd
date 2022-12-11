@@ -46,22 +46,54 @@ namespace Utopia2._0.Controllers
         [HttpPost("PostAnswers")]
         public async Task<ActionResult<ApiCorrectAnswersAndPoints>> PostCompany([FromBody] ApiAnswer apiAnswer)
         {
+            var points = 0;
 
             var person = await _context.Persons
                 .Where(p => (p.RandomKey == apiAnswer.PersonalKey) && (p.Username == apiAnswer.UserName))
                 .FirstOrDefaultAsync();
 
+            //find lineId of the questions that you filled in
+            var lineId = _context.MultipleChoiceAnswers
+                    .Where(m => m.Id == apiAnswer.MultipleChoiceAnswerIds.FirstOrDefault())
+                    .FirstOrDefaultAsync()
+                    .Result
+                    .Question
+                    .Building
+                    .LineId;
+
+            var DidThisPersonAlreadyAnswerQuestionsOnThisLine =
+                _context.Answers
+                .Where(a => a.PersonId == person.Id)
+                .Where(a => a.MultipleChoiceAnswer.Question.Building.LineId == lineId)
+                .Any();
+
             foreach (int multipleChoiceAnswerId in apiAnswer.MultipleChoiceAnswerIds)
             {
                 _context.Answers.Add(new Answer { MultipleChoiceAnswerId = multipleChoiceAnswerId, PersonId = person.Id });
                 await _context.SaveChangesAsync();
+
+
+                //check if answer is correct
+                var isCorrect = _context.MultipleChoiceAnswers
+                    .Where(m => m.Id == multipleChoiceAnswerId)
+                    .FirstOrDefaultAsync()
+                    .Result
+                    .Correct;
+                if (isCorrect)
+                {
+                    points++;
+                }
+
+            }
+                        
+
+            if (!DidThisPersonAlreadyAnswerQuestionsOnThisLine)
+            {
+                //add bonus factor x2
+                points *= 2;
             }
 
-            //logica voor punten toevoegen
-
-            //antwoordenID's ook toevoegen
-
-            return new ApiCorrectAnswersAndPoints { CorrectAnswerIds = { 1, 2, 3 }, points = 10};
+            return new ApiCorrectAnswersAndPoints { CorrectAnswerIds = { 1, 2, 3 }, points = points};
         }
 
 
