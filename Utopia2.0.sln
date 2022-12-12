@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utopia2.0", "Utopia2.0\Utopia2.0.csproj", "{9C38A69C-2E0D-4389-9B97-CEAB823C04E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utopia2.0", "Utopia2.0\Utopia2.0.csproj", "{9C38A69C-2E0D-4389-9B97-CEAB823C04E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utopia2.0.DAL", "Utopia2.0.DAL\Utopia2.0.DAL.csproj", "{8BE5EACA-EB95-4565-AC1C-5E23881FAD1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utopia2.0.DAL", "Utopia2.0.DAL\Utopia2.0.DAL.csproj", "{8BE5EACA-EB95-4565-AC1C-5E23881FAD1E}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{4F3E3765-7B99-4F7B-B450-33C2FC8379E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8BE5EACA-EB95-4565-AC1C-5E23881FAD1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BE5EACA-EB95-4565-AC1C-5E23881FAD1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BE5EACA-EB95-4565-AC1C-5E23881FAD1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F3E3765-7B99-4F7B-B450-33C2FC8379E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F3E3765-7B99-4F7B-B450-33C2FC8379E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F3E3765-7B99-4F7B-B450-33C2FC8379E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F3E3765-7B99-4F7B-B450-33C2FC8379E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
