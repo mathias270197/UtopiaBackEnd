@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  utopia2.0:
+    image: ${DOCKER_REGISTRY-}utopia20
+    build:
+      context: .
+      dockerfile: Utopia2.0/Dockerfile
