@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend3\\UtopiaBackEnd\\Utopia2.0\\Utopia2.0.csproj": {}
+    "D:\\Utopia\\backend\\clone3\\UtopiaBackEnd\\Utopia2.0\\Utopia2.0.csproj": {}
   },
   "projects": {
-    "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend3\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj": {
+    "D:\\Utopia\\backend\\clone3\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend3\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj",
+        "projectUniqueName": "D:\\Utopia\\backend\\clone3\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj",
         "projectName": "Utopia2.0.DAL",
-        "projectPath": "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend3\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj",
-        "packagesPath": "C:\\Users\\stijn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend3\\UtopiaBackEnd\\Utopia2.0.DAL\\obj\\",
+        "projectPath": "D:\\Utopia\\backend\\clone3\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj",
+        "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
+        "outputPath": "D:\\Utopia\\backend\\clone3\\UtopiaBackEnd\\Utopia2.0.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\stijn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -80,17 +80,17 @@
         }
       }
     },
-    "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend3\\UtopiaBackEnd\\Utopia2.0\\Utopia2.0.csproj": {
+    "D:\\Utopia\\backend\\clone3\\UtopiaBackEnd\\Utopia2.0\\Utopia2.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend3\\UtopiaBackEnd\\Utopia2.0\\Utopia2.0.csproj",
+        "projectUniqueName": "D:\\Utopia\\backend\\clone3\\UtopiaBackEnd\\Utopia2.0\\Utopia2.0.csproj",
         "projectName": "Utopia2.0",
-        "projectPath": "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend3\\UtopiaBackEnd\\Utopia2.0\\Utopia2.0.csproj",
-        "packagesPath": "C:\\Users\\stijn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend3\\UtopiaBackEnd\\Utopia2.0\\obj\\",
+        "projectPath": "D:\\Utopia\\backend\\clone3\\UtopiaBackEnd\\Utopia2.0\\Utopia2.0.csproj",
+        "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
+        "outputPath": "D:\\Utopia\\backend\\clone3\\UtopiaBackEnd\\Utopia2.0\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\stijn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -104,8 +104,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend3\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj": {
-                "projectPath": "C:\\Users\\stijn\\Documents\\OHO_IT_4\\Project 4punt0\\backend3\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj"
+              "D:\\Utopia\\backend\\clone3\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj": {
+                "projectPath": "D:\\Utopia\\backend\\clone3\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj"
               }
             }
           }
@@ -120,6 +120,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Docker.DotNet": {
+              "target": "Package",
+              "version": "[3.125.12, )"
+            },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[5.0.12, )"
@@ -133,6 +137,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.17, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.14.0, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
