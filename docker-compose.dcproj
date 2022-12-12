@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>e3e05e99-c87b-4da6-ac69-087a8ea6b07a</ProjectGuid>
+    <ProjectGuid>2066c55b-3802-4419-9786-b9cfd6900aa7</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>utopia2.0</DockerServiceName>

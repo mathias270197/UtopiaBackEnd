@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utopia2.0", "Utopia2.0\Utop
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utopia2.0.DAL", "Utopia2.0.DAL\Utopia2.0.DAL.csproj", "{8BE5EACA-EB95-4565-AC1C-5E23881FAD1E}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{E3E05E99-C87B-4DA6-AC69-087A8EA6B07A}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2066C55B-3802-4419-9786-B9CFD6900AA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{8BE5EACA-EB95-4565-AC1C-5E23881FAD1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BE5EACA-EB95-4565-AC1C-5E23881FAD1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BE5EACA-EB95-4565-AC1C-5E23881FAD1E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E3E05E99-C87B-4DA6-AC69-087A8EA6B07A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3E05E99-C87B-4DA6-AC69-087A8EA6B07A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3E05E99-C87B-4DA6-AC69-087A8EA6B07A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3E05E99-C87B-4DA6-AC69-087A8EA6B07A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2066C55B-3802-4419-9786-B9CFD6900AA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2066C55B-3802-4419-9786-B9CFD6900AA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2066C55B-3802-4419-9786-B9CFD6900AA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2066C55B-3802-4419-9786-B9CFD6900AA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
