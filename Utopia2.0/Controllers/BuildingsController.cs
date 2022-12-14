@@ -48,6 +48,7 @@ namespace Utopia2._0.Controllers
 
             var buildings = await _context.Buildings
                 .Where(b => b.LineId == lineId)
+                .OrderBy(c => c.Station.X)
                 .Select(b => new ApiCoordinates
                 {
                     Id = b.Id,
