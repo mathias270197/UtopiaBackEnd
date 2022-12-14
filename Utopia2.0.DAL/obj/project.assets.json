@@ -5803,11 +5803,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Utopia\\backend\\clone3\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj",
+      "projectUniqueName": "D:\\Utopia\\backend\\clone4\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj",
       "projectName": "Utopia2.0.DAL",
-      "projectPath": "D:\\Utopia\\backend\\clone3\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj",
+      "projectPath": "D:\\Utopia\\backend\\clone4\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj",
       "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
-      "outputPath": "D:\\Utopia\\backend\\clone3\\UtopiaBackEnd\\Utopia2.0.DAL\\obj\\",
+      "outputPath": "D:\\Utopia\\backend\\clone4\\UtopiaBackEnd\\Utopia2.0.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
