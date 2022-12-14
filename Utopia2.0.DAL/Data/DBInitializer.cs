@@ -21,9 +21,9 @@ namespace Shop.DAL.Models
             {
                 for (int i = 1; i <= 10; i++)
                 {
-                    double XDouble = rd.NextDouble();
-                    double YDouble = rd.NextDouble();
-                    Station station = new Station { X = XDouble, Y = YDouble };
+                    int X = rd.Next(10,120);
+                    int Y = rd.Next(10,120);
+                    Station station = new Station { X = X, Y = Y };
                     context.Add(station);
                 }
                 context.SaveChanges();
