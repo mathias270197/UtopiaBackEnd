@@ -14,10 +14,10 @@ services:
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
       - NUGET_FALLBACK_PACKAGES=
     volumes:
-      - D:\Utopia\backend\clone4\UtopiaBackEnd\Utopia2.0:/app
-      - D:\Utopia\backend\clone4\UtopiaBackEnd:/src
-      - C:\Users\mathi\vsdbg\vs2017u5:/remote_debugger:rw
-      - C:\Users\mathi\.nuget\packages\:/root/.nuget/packages:ro
+      - D:\OneDrive\OHO\Jaar4\Project40\Project_Backend_v2\Utopia2.0:/app
+      - D:\OneDrive\OHO\Jaar4\Project40\Project_Backend_v2:/src
+      - C:\Users\bosma\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\bosma\.nuget\packages\:/root/.nuget/packages:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
 

@@ -7602,19 +7602,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mathi\\.nuget\\packages\\": {}
+    "C:\\Users\\bosma\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Utopia\\backend\\clone4\\UtopiaBackEnd\\Utopia2.0\\Utopia2.0.csproj",
+      "projectUniqueName": "D:\\OneDrive\\OHO\\Jaar4\\Project40\\Project_Backend_v2\\Utopia2.0\\Utopia2.0.csproj",
       "projectName": "Utopia2.0",
-      "projectPath": "D:\\Utopia\\backend\\clone4\\UtopiaBackEnd\\Utopia2.0\\Utopia2.0.csproj",
-      "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
-      "outputPath": "D:\\Utopia\\backend\\clone4\\UtopiaBackEnd\\Utopia2.0\\obj\\",
+      "projectPath": "D:\\OneDrive\\OHO\\Jaar4\\Project40\\Project_Backend_v2\\Utopia2.0\\Utopia2.0.csproj",
+      "packagesPath": "C:\\Users\\bosma\\.nuget\\packages\\",
+      "outputPath": "D:\\OneDrive\\OHO\\Jaar4\\Project40\\Project_Backend_v2\\Utopia2.0\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\bosma\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7628,8 +7628,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Utopia\\backend\\clone4\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj": {
-              "projectPath": "D:\\Utopia\\backend\\clone4\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj"
+            "D:\\OneDrive\\OHO\\Jaar4\\Project40\\Project_Backend_v2\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj": {
+              "projectPath": "D:\\OneDrive\\OHO\\Jaar4\\Project40\\Project_Backend_v2\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj"
             }
           }
         }
