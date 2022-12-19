@@ -11,18 +11,27 @@ namespace Shop.DAL.Models
 
         public static void Initialize(UtopiaContext context)
         {
+            // For the creation of random data for the db, the index starts from 1 to make sure
+            // the generated id corresponds with the ID of the row.
+
             Random rd = new Random();
-            string[] colors = new string[] {"", "blue", "green", "red", "yellow" };
+            string[] colors = new string[] {"blue", "green", "red", "yellow" };
+            int nrOfStations = 10;
+            int nrOfLines = colors.Length;
+            int nrOfBuildings = 10;
+            int nrOfQuestions = 10;
+            int nrOfAnswers = 4;
+            int nrOfParticipants = 500;
 
             context.Database.EnsureCreated();
             //Add Stations
 
             if (!context.Stations.Any())
             {
-                for (int i = 1; i <= 10; i++)
+                for (int i = 1; i < nrOfStations + 1; i++)
                 {
-                    int X = rd.Next(10,120);
-                    int Y = rd.Next(10,120);
+                    int X = rd.Next(10, 120);
+                    int Y = rd.Next(10, 120);
                     Station station = new Station { X = X, Y = Y };
                     context.Add(station);
                 }
@@ -30,10 +39,10 @@ namespace Shop.DAL.Models
             }
             if (!context.Lines.Any())
             {
-                for (int i = 1; i <= 4; i++)
+                for (int i = 1; i < nrOfLines + 1; i++)
                 {
                    
-                    Line line = new Line { Color = colors[i], Faculty = "dit is een faculty" + i };
+                    Line line = new Line { Color = colors[i-1], Faculty = "Dit is een faculty " + i };
 
                     context.Add(line);
                 }
@@ -41,15 +50,15 @@ namespace Shop.DAL.Models
             }
             if (!context.Buildings.Any())
             {
-                for (int i = 1; i <= 10; i++)
+                for (int i = 1; i < nrOfBuildings + 1; i++)
                 {
-                    Building building = new Building { GraduateProgram = "dit is een gebouw" + i, LineId = rd.Next(1, 4), StationId = rd.Next(1, 10) };
+                    Building building = new Building { GraduateProgram = "Dit is een gebouw " + i, LineId = rd.Next(1, nrOfLines+1), StationId = rd.Next(1, 10) };
 
                     context.Add(building);
                 }
-                for (int i = 1; i <= 10; i++)
+                for (int i = 1; i < nrOfBuildings + 1; i++)
                 {
-                    Building building = new Building { GraduateProgram = "dit is een gebouw" + i, LineId = rd.Next(1, 4), StationId = i };
+                    Building building = new Building { GraduateProgram = "Dit is een gebouw " + i, LineId = rd.Next(1, nrOfLines+1), StationId = i };
 
                     context.Add(building);
                 }
@@ -57,12 +66,12 @@ namespace Shop.DAL.Models
             }
             if (!context.Persons.Any())
             {
-                for (int i = 1; i <= 500; i++)
+                for (int i = 1; i < nrOfParticipants + 1; i++)
                 {
                     int randomNumber = rd.Next(1000000, 9999999);
                     String random = randomNumber.ToString();
 
-                    Person person = new Person { Username = "Persoon" + i, RandomKey = random };
+                    Person person = new Person { Username = "Persoon " + i, RandomKey = random };
 
                     context.Add(person);
 
@@ -71,11 +80,15 @@ namespace Shop.DAL.Models
             }
             if (!context.Questions.Any())
             {
-                for (int i = 1; i <= 10; i++)
+                for (int i = 1; i < nrOfBuildings + 1; i++)
                 {
-                    for (int j = 1; j <= 10; j++)
+                    // Define the start ID for the questions of this building
+                    var questionStartId = (i - 1) * nrOfBuildings + 1;
+                    // Create nrOfQuestions questions for this building starting from the questionStartId until questionStartId + nrOfQuestions
+                    // In the for loop < is used instead of <=, as the index i starts with 1 (and not with 0).
+                    for (int j = questionStartId; j < questionStartId + nrOfQuestions; j++)
                     {
-                        Question question = new Question { TextualQuestion = "dit is een vraag" + i, BuildingId = i };
+                        Question question = new Question { TextualQuestion = "Dit is een vraag " + j, BuildingId = i };
                         context.Add(question);
                     }
                     
@@ -84,12 +97,25 @@ namespace Shop.DAL.Models
             }
             if (!context.MultipleChoiceAnswers.Any())
             {
-                for (int i = 1; i <= 100; i++)
+                for (int i = 1; i < nrOfBuildings * nrOfQuestions + 1; i++)
                 {
-                    for (int j = 1; j <= 4; j++)
+                    // Define the start ID of the answer for this question
+                    var answerStartId = (i-1) * nrOfAnswers + 1;
+                    // Create a random integer to define the correct answer
+                    // The rd.Nxt() function generates a number from 0 until (excluding) nrOfAnswers (therefore no -1).
+                    var correctAnswerId = rd.Next(nrOfAnswers) + answerStartId;
+                    // Create nrOfAnswers answers for this question starting from the answerStartId untill answerStartId + nrOfAnswers
+                    // In the for loop < is used instead of <=, as the index i starts with 1 (and not with 0).
+                    for (int j = answerStartId; j < answerStartId + nrOfAnswers; j++)
                     {
-                        var randomBool = rd.Next(2) == 1;
-                        MultipleChoiceAnswer multipleChoiceAnswer = new MultipleChoiceAnswer { TextualAnswer = "dit is een antwoord" + j, Correct = randomBool, QuestionId = i };
+                        // Check here if this answer is the correct one.
+                        bool correct;
+                        if (correctAnswerId == j) {
+                            correct = true;
+                        } else {
+                            correct = false;
+                        }
+                        MultipleChoiceAnswer multipleChoiceAnswer = new MultipleChoiceAnswer { TextualAnswer = "Dit is een antwoord " + j, Correct = correct, QuestionId = i };
                         context.Add(multipleChoiceAnswer);
                     }
                 }
@@ -99,7 +125,7 @@ namespace Shop.DAL.Models
             {
                 for (int i = 1; i <= 1500; i++)
                 {
-                    Answer answer = new Answer { MultipleChoiceAnswerId = rd.Next(1, 40), PersonId = rd.Next(1,500) };
+                    Answer answer = new Answer { MultipleChoiceAnswerId = rd.Next(1,nrOfBuildings*nrOfQuestions*nrOfAnswers), PersonId = rd.Next(1,nrOfParticipants) };
                     context.Add(answer);
                 }
                 context.SaveChanges();

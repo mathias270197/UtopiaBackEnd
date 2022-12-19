@@ -6,6 +6,6 @@ namespace Utopia2._0.Controllers
     {
         public int Id { get; set; }
         public string TextualQuestion { get; set; }
-        public ICollection<ApiMultipleChoiceAnswer> Ansers { get; set; }
-}
+        public ICollection<ApiMultipleChoiceAnswer> Answers { get; set; }
+    }
 }

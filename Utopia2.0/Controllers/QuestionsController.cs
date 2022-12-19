@@ -31,7 +31,7 @@ namespace Utopia2._0.Controllers
                 {
                     Id = q.Id,
                     TextualQuestion = q.TextualQuestion,
-                    Ansers = q.MultipleChoiceAnswers.Select(m => new ApiMultipleChoiceAnswer { Id = m.Id, TextualAnswer = m.TextualAnswer, Correct = m.Correct  }).ToList()
+                    Answers = q.MultipleChoiceAnswers.Select(m => new ApiMultipleChoiceAnswer { Id = m.Id, TextualAnswer = m.TextualAnswer, Correct = m.Correct  }).ToList()
                 })
                 .ToListAsync();
 
