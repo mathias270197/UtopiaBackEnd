@@ -2,9 +2,8 @@
 {
     public class ApiCoordinates
     {
-        public int Id { get; set; }
-        public double X { get; set; }
-        public double Y { get; set; }
-        public string Color { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
+
     }
 }
