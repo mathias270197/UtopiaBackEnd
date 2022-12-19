@@ -25,15 +25,18 @@ namespace Utopia2._0.Controllers
         public async Task<ActionResult<IEnumerable<ApiStation>>> GetStations()
         {
 
-
-            return await _context.Stations
-                .Select(s => new ApiStation
+                
+            return await _context.Lines.Include(l => l.Buildings)
+                .Select(c => new ApiStation
                 {
-                    Id = s.Id,
-                    X = s.X,
-                    Y = s.Y,
-                    NumberOfBuildings = s.Buildings.Count,
-                    firstBuildingId = s.Buildings.FirstOrDefault().Id,
+                    Id = c.Id ,
+                    Coordinates = _context.Buildings.Where(b => b.LineId == c.Id).OrderBy(c => c.Station.X).Select(x => new ApiCoordinates
+                    {
+                        X = x.Station.X,
+                        Y = x.Station.Y
+                    }).ToList(),
+                    Color = c.Color,
+                    
                     //maximum te verdienen punten nog toevoegen
                 })
                 .ToListAsync();
@@ -63,6 +66,7 @@ namespace Utopia2._0.Controllers
 
             return buildings;
         }
+
 
 
 

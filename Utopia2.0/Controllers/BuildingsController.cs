@@ -42,7 +42,7 @@ namespace Utopia2._0.Controllers
             return building;
         }
 
-        [HttpGet("GetLineCoordinates/{lineId}")]
+        /*[HttpGet("GetLineCoordinates/{lineId}")]
         public async Task<ActionResult<IEnumerable<ApiCoordinates>>> GetLineCoordinates(int lineId)
         {
 
@@ -64,7 +64,7 @@ namespace Utopia2._0.Controllers
 
             return buildings;
         }
-
+        */
         private bool BuildingExists(int id)
         {
             return _context.Buildings.Any(e => e.Id == id);
