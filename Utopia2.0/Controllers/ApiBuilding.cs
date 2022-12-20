@@ -5,6 +5,7 @@
         public int Id { get; set; }
         public string GraduateProgram { get; set; }
         public string Color { get; set; }
+        public bool Bonus { get; set; }
 
     }
 }
