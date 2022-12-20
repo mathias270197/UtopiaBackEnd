@@ -57,11 +57,16 @@ namespace Utopia2._0.Controllers
                 .ToListAsync();
         }
 
-        [HttpGet("GetEscapeRoomsOfStation/{stationId}")]
-        public async Task<ActionResult<IEnumerable<ApiBuilding>>> GetEscapeRoomsOfStation(int stationId)
+        [HttpGet("GetEscapeRoomsOfStation/{stationId}/{UserName}/{PersonalKey}")]
+        public async Task<ActionResult<IEnumerable<ApiBuilding>>> GetEscapeRoomsOfStation(int stationId, string UserName, string PersonalKey)
         {
+            //find the person
+            var personId = await _context.Persons
+                .Where(p => (p.RandomKey == PersonalKey) && (p.Username == UserName))
+                .Select(p => p.Id)
+                .FirstOrDefaultAsync();
 
-
+            
 
             var buildings = await _context.Buildings
                 .Where(b => b.StationId == stationId)
@@ -69,10 +74,10 @@ namespace Utopia2._0.Controllers
                 {
                     Id = b.Id,
                     GraduateProgram = b.GraduateProgram,
-                    Color = b.Line.Color
+                    Color = b.Line.Color,
+                    Bonus = !_context.Answers.Where(a => a.PersonId == personId && a.MultipleChoiceAnswer.Question.Building.LineId == b.LineId).Any(),
                 })
                 .ToListAsync();
-            // with buildings (ID en name)
 
             if (buildings == null)
             {
