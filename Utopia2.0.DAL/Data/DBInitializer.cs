@@ -56,7 +56,7 @@ namespace Shop.DAL.Models
 
                     context.Add(building);
                 }
-                for (int i = 1; i < nrOfBuildings + 1; i++)
+                for (int i = 1; i < nrOfStations + 1; i++)
                 {
                     Building building = new Building { GraduateProgram = "Dit is een gebouw " + i, LineId = rd.Next(1, nrOfLines+1), StationId = i };
 

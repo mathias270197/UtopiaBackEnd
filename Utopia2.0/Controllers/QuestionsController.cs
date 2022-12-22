@@ -43,6 +43,27 @@ namespace Utopia2._0.Controllers
             return questions;
         }
 
+        [HttpGet("GetGraduateProgram/{buildingId}")]
+        public async Task<ActionResult<IEnumerable<ApiQuestion>>> GetGraduateProgram(int buildingId)
+        {
+            var questions = await _context.Questions
+                .Where(q => q.BuildingId == buildingId)
+                .Select(q => new ApiQuestion
+                {
+                    Id = q.Id,
+                    TextualQuestion = q.TextualQuestion,
+                    Answers = q.MultipleChoiceAnswers.Select(m => new ApiMultipleChoiceAnswer { Id = m.Id, TextualAnswer = m.TextualAnswer, Correct = m.Correct }).ToList()
+                })
+                .ToListAsync();
+
+            if (questions == null)
+            {
+                return NotFound();
+            }
+
+            return questions;
+        }
+
         [HttpPost("PostAnswers")]
         public async Task<ActionResult<ApiCorrectAnswersAndPoints>> PostCompany([FromBody] ApiAnswer apiAnswer)
         {
