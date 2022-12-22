@@ -125,7 +125,7 @@ namespace Shop.DAL.Models
             {
                 for (int i = 1; i <= 1500; i++)
                 {
-                    Answer answer = new Answer { MultipleChoiceAnswerId = rd.Next(1,nrOfBuildings*nrOfQuestions*nrOfAnswers), PersonId = rd.Next(1,nrOfParticipants) };
+                    Answer answer = new Answer { MultipleChoiceAnswerId = rd.Next(1,nrOfBuildings*nrOfQuestions*nrOfAnswers), PersonId = rd.Next(1,nrOfParticipants), Date = DateTime.Parse("2022-09-01") };
                     context.Add(answer);
                 }
                 context.SaveChanges();
