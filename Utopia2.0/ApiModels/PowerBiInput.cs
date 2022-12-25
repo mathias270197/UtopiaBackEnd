@@ -13,7 +13,6 @@ namespace Utopia2._0.ApiModels
         public string question { get; set; }
         public string graduateProgram { get; set; }
         public string faculty { get; set; }
-        //public string color { get; set; }
         public string userName { get; set; }
         public string userKey { get; set; }
     }

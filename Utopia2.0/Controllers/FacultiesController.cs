@@ -53,11 +53,6 @@ namespace Utopia2._0.Controllers
                 return BadRequest();
             }
 
-            // Check if the rank is not double in the database
-            //bool rankOnlyOncePresent = VerifyIfRankIsPresentOnlyOnce(treatmentCategory.ID, treatmentCategory.Rank);
-
-            //if (rankOnlyOncePresent)
-            //{
             _uow.FacultyRepository.Update(faculty);
 
             try
