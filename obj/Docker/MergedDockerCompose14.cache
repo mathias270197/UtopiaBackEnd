@@ -1,0 +1,54 @@
+name: dockercompose12612508512100668238
+services:
+  Utopia:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: S3cur3P@ssW0rd!
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 1433
+      published: "1433"
+      protocol: tcp
+  utopia2.0:
+    build:
+      context: D:\OneDrive\OHO\Jaar4\Project40\Project_Backend_v3
+      dockerfile: Utopia2.0/Dockerfile
+    depends_on:
+      Utopia:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: utopia20
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 80
+      published: "8000"
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\bosma\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\bosma\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+networks:
+  default:
+    name: dockercompose12612508512100668238_default

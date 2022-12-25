@@ -5,8 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Utopia2._0.Data;
-using Shop.DAL.Models;
+using Utopia2._0.DAL;
+using Utopia2._0.DAL.Data;
 
 namespace Utopia2._0
 {
@@ -22,7 +22,7 @@ namespace Utopia2._0
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<UtopiaContext>(opt =>
+            services.AddDbContext<DataContext>(opt =>
                 opt.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
@@ -39,6 +39,8 @@ namespace Utopia2._0
 
             services.AddControllers();
 
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Utopia2._0", Version = "v1" });
@@ -46,7 +48,7 @@ namespace Utopia2._0
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UtopiaContext context)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataContext context)
         {
             if (env.IsDevelopment())
             {
