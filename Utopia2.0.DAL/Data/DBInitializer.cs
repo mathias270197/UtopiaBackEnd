@@ -1,213 +1,184 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
-using Utopia2._0.Data;
-using Utopia2._0.Models;
+using Utopia2._0.DAL.Models;
+using Utopia2._0.DAL.Data;
+using System.Collections.Generic;
 
-namespace Shop.DAL.Models
+namespace Utopia2._0.DAL
 {
     public class DBInitializer
     {
 
-        public static void Initialize(UtopiaContext context)
+        // Define the number of objects
+        static int nrOfFaculties = 5;
+        static int nrOfGraduatePrograms = 5;           // Per faculty
+        static int nrOfQuestions = 10;                 // Per graduate program
+        static int nrOfMultipleChoiceAnswers = 4;      // Per question
+        static int nrOfPersons = 20;
+
+        // Define the counters that start from zero
+        static int facultyCounter = 0;
+        static int graduateProgramCounter = 0;
+        static int questionCounter = 0;
+        static int multipleChoiceAnswerCounter = 0;
+        // static int personCounter = 0;
+        // static int answerCounter = 0;
+
+        static Random rd = new Random();
+
+        public static int GenerateRandomInt(int range) 
         {
-            // For the creation of random data for the db, the index starts from 1 to make sure
-            // the generated id corresponds with the ID of the row.
+            return rd.Next(1, range);
+        }
 
-            Random rd = new Random();
-            string[] colors = new string[] {"blue", "green", "red", "yellow" };
-            int nrOfStations = 10;
-            int nrOfLines = colors.Length;
-            int nrOfBuildings = 10;
-            int nrOfQuestions = 10;
-            int nrOfAnswers = 4;
-            int nrOfParticipants = 500;
-
+        public static void Initialize(DataContext context)
+        {
+            
             context.Database.EnsureCreated();
-            //Add Stations
 
-            if (!context.Stations.Any())
+
+            //// Loops to clear the context if necessary. Put these lines in comment if you do not want to delete the DataContext content.
+            //foreach (var item in context.Faculties)
+            //{
+            //    context.Faculties.Remove(item);
+            //}
+            //context.SaveChanges();
+            //foreach (var item in context.GraduatePrograms)
+            //{
+            //    context.GraduatePrograms.Remove(item);
+            //}
+            //context.SaveChanges();
+            //foreach (var item in context.Questions)
+            //{
+            //    context.Questions.Remove(item);
+            //}
+            //context.SaveChanges();
+            //foreach (var item in context.MultipleChoiceAnswers)
+            //{
+            //    context.MultipleChoiceAnswers.Remove(item);
+            //}
+            //context.SaveChanges();
+
+
+            // If the context is empty, fill it up.
+            if (!context.Faculties.Any())
             {
-                for (int i = 1; i < nrOfStations + 1; i++)
+                // Add faculties
+                for (int f = 1; f <= nrOfFaculties; f++)
                 {
-                    int X = rd.Next(10, 120);
-                    int Y = rd.Next(10, 120);
-                    Station station = new Station { X = X, Y = Y };
-                    context.Add(station);
-                }
-                context.SaveChanges();
-            }
-            if (!context.Lines.Any())
-            {
-                for (int i = 1; i < nrOfLines + 1; i++)
-                {
-                   
-                    Line line = new Line { Color = colors[i-1], Faculty = "Dit is een faculty " + i };
+                    // Define the index of the faculty (might not match with the real index!)
+                    facultyCounter++;
+                    Faculty faculty = new Faculty { Name = "Faculty " + facultyCounter, Active = true };
+                    context.Add(faculty);
+                    context.SaveChanges();
 
-                    context.Add(line);
-                }
-                context.SaveChanges();
-            }
-            if (!context.Buildings.Any())
-            {
-                for (int i = 1; i < nrOfBuildings + 1; i++)
-                {
-                    Building building = new Building { GraduateProgram = "Dit is een gebouw " + i, LineId = rd.Next(1, nrOfLines+1), StationId = rd.Next(1, 10) };
-
-                    context.Add(building);
-                }
-                for (int i = 1; i < nrOfBuildings + 1; i++)
-                {
-                    Building building = new Building { GraduateProgram = "Dit is een gebouw " + i, LineId = rd.Next(1, nrOfLines+1), StationId = i };
-
-                    context.Add(building);
-                }
-                context.SaveChanges();
-            }
-            if (!context.Persons.Any())
-            {
-                for (int i = 1; i < nrOfParticipants + 1; i++)
-                {
-                    int randomNumber = rd.Next(1000000, 9999999);
-                    String random = randomNumber.ToString();
-
-                    Person person = new Person { Username = "Persoon " + i, RandomKey = random };
-
-                    context.Add(person);
-
-                }
-                context.SaveChanges();
-            }
-            if (!context.Questions.Any())
-            {
-                for (int i = 1; i < nrOfBuildings + 1; i++)
-                {
-                    // Define the start ID for the questions of this building
-                    var questionStartId = (i - 1) * nrOfBuildings + 1;
-                    // Create nrOfQuestions questions for this building starting from the questionStartId until questionStartId + nrOfQuestions
-                    // In the for loop < is used instead of <=, as the index i starts with 1 (and not with 0).
-                    for (int j = questionStartId; j < questionStartId + nrOfQuestions; j++)
+                    // Add graduate programs
+                    for (int g = 1; g <= nrOfGraduatePrograms; g++) 
                     {
-                        Question question = new Question { TextualQuestion = "Dit is een vraag " + j, BuildingId = i };
-                        context.Add(question);
-                    }
-                    
-                }
-                context.SaveChanges();
-            }
-            if (!context.MultipleChoiceAnswers.Any())
-            {
-                for (int i = 1; i < nrOfBuildings * nrOfQuestions + 1; i++)
-                {
-                    // Define the start ID of the answer for this question
-                    var answerStartId = (i-1) * nrOfAnswers + 1;
-                    // Create a random integer to define the correct answer
-                    // The rd.Nxt() function generates a number from 0 until (excluding) nrOfAnswers (therefore no -1).
-                    var correctAnswerId = rd.Next(nrOfAnswers) + answerStartId;
-                    // Create nrOfAnswers answers for this question starting from the answerStartId untill answerStartId + nrOfAnswers
-                    // In the for loop < is used instead of <=, as the index i starts with 1 (and not with 0).
-                    for (int j = answerStartId; j < answerStartId + nrOfAnswers; j++)
-                    {
-                        // Check here if this answer is the correct one.
-                        bool correct;
-                        if (correctAnswerId == j) {
-                            correct = true;
-                        } else {
-                            correct = false;
+                        // Define the index of the graduate program (might not match with the real index!)
+                        graduateProgramCounter++;
+                        GraduateProgram graduateProgram = new GraduateProgram { Name = "Graduate program " + graduateProgramCounter, Active = true, FacultyId = facultyCounter };
+                        context.Add(graduateProgram);
+                        context.SaveChanges();
+
+
+                        // Add questions
+                        for (int q = 1; q <= nrOfQuestions; q++)
+                        {
+                            // Define the index of the question (might not match with the real index!)
+                            questionCounter++;
+                            Question question = new Question { TextualQuestion = "This is a question? " + questionCounter, Active = true, GraduateProgramId = graduateProgramCounter };
+                            context.Add(question);
+                            context.SaveChanges();
+
+                            var correctAnswerId = rd.Next(nrOfMultipleChoiceAnswers);
+
+
+                            // Add multiple choice answers
+                            for (int m = 1; m <= nrOfMultipleChoiceAnswers; m++)
+                            {
+                                // Check here if this answer is the correct one.
+                                bool correct;
+                                if (correctAnswerId == m)
+                                {
+                                    correct = true;
+                                }
+                                else
+                                {
+                                    correct = false;
+                                }
+
+                                // Define the index of the multiple choice answer (might not match with the real index!)
+                                multipleChoiceAnswerCounter++;
+                                MultipleChoiceAnswer multipleChoiceAnswer = new MultipleChoiceAnswer { TextualAnswer = "Multiple choice answer option " + multipleChoiceAnswerCounter, Active = true, Correct = correct, QuestionId = questionCounter };
+                                context.Add(multipleChoiceAnswer);
+                                context.SaveChanges();
+
+                            }
                         }
-                        MultipleChoiceAnswer multipleChoiceAnswer = new MultipleChoiceAnswer { TextualAnswer = "Dit is een antwoord " + j, Correct = correct, QuestionId = i };
-                        context.Add(multipleChoiceAnswer);
+                    }
+                }   
+            }
+            
+
+            // Add persons
+            for (int p = 1; p <= nrOfPersons; p++)
+            {
+                // Define the index of the person (might not match with the real index!)
+                // personCounter++;
+                int randomNumber = rd.Next(1000000, 9999999);
+                string random = randomNumber.ToString();
+                Person person = new Person { Username = "Person " + p, Userkey = random };
+                context.Add(person);
+                context.SaveChanges();
+
+                List<int> graduateProgramsDone = new List<int>();
+
+                // Take a random number of graduate programs 
+                var randomNumberOfGraduateProgramsToBeDone = rd.Next(nrOfFaculties * nrOfGraduatePrograms / 2);
+                for (int g = 1; g <= randomNumberOfGraduateProgramsToBeDone; g++)
+                {
+                    // Define a random graduate program index
+                    //int randomGraduateProgramId = rd.Next(1, nrOfFaculties * nrOfGraduatePrograms);
+                    int randomGraduateProgramId = GenerateRandomInt(nrOfFaculties * nrOfGraduatePrograms);
+                    var goon = false;
+                    while (goon == false)
+                    {
+
+                        // Check if the ID is already done or not
+                        if (graduateProgramsDone.Contains(randomGraduateProgramId) == true)
+                        {
+                            // This graduate program is already done. So we need to select another ID
+                            randomGraduateProgramId = GenerateRandomInt(nrOfFaculties * nrOfGraduatePrograms);
+                            goon = false;
+                        }
+                        else
+                        {
+                            // This graduate program is not done yet. So it is a valid choice.
+                            graduateProgramsDone.Add(randomGraduateProgramId);
+                            goon = true;
+                        }
+                    }
+
+                    // Answer all the questions for that random graduate program
+                    for (int q = 1; q <= nrOfQuestions; q++)
+                    {
+
+                        int startId = ((randomGraduateProgramId - 1) * nrOfQuestions * nrOfMultipleChoiceAnswers) + ((q - 1) * nrOfMultipleChoiceAnswers) + 1;
+                        int finalId = startId + nrOfMultipleChoiceAnswers - 1;
+
+                        Answer answer = new Answer { MultipleChoiceAnswerId = rd.Next(startId, finalId), PersonId = p, Date = DateTime.Parse("2022-09-01") };
+                        context.Add(answer);
+                        context.SaveChanges();
+
                     }
                 }
-                context.SaveChanges();
-            }
-            if (!context.Answers.Any())
-            {
-                for (int i = 1; i <= 1500; i++)
-                {
-                    Answer answer = new Answer { MultipleChoiceAnswerId = rd.Next(1,nrOfBuildings*nrOfQuestions*nrOfAnswers), PersonId = rd.Next(1,nrOfParticipants), Date = DateTime.Parse("2022-09-01") };
-                    context.Add(answer);
-                }
-                context.SaveChanges();
             }
 
+            context.SaveChanges();
 
 
-
-            // Look for any products.
-            /*if (context.Products.Any())
-            {
-                return;   // DB has been seeded
-            }
-
-            //Add products
-            context.AddRange(
-                new Product { Name = "Red Woody pajama", Price = 15.99M },
-                new Product { Name = "Blue cap", Price = 5.99M },
-                new Product { Name = "Green t-shirt", Price = 20.99M }
-                );
-
-            //Add customers
-            Customer customerMichael = new Customer()
-            {
-                FirstName = "Michaël",
-                LastName = "Cloots",
-                Email = "michael.cloots@thomasmore.be"
-            };
-
-            Customer customerJos = new Customer()
-            {
-                FirstName = "Jos",
-                LastName = "Jossen",
-                Email = "jos.jossen@thomasmore.be"
-            };
-            context.Add(customerMichael);
-            context.Add(customerJos);
-
-            //Orders
-            Order order = new Order()
-            {
-                OrderPlaced = DateTime.Now,
-                CustomerId = 1
-            };
-
-            Order order2 = new Order()
-            {
-                OrderPlaced = DateTime.Now.AddDays(-7),
-                CustomerId = 1
-            };
-
-            context.Add(order);
-            context.Add(order2);
-
-            //ProductOrders
-            ProductOrder po = new ProductOrder()
-            {
-                OrderId = 1,
-                ProductId = 1,
-                Quantity = 5
-            };
-
-            ProductOrder po2 = new ProductOrder()
-            {
-                OrderId = 2,
-                ProductId = 2,
-                Quantity = 2
-            };
-
-            ProductOrder po3 = new ProductOrder()
-            {
-                OrderId = 1,
-                ProductId = 2,
-                Quantity = 10
-            };
-
-            context.Add(po);
-            context.Add(po2);
-            context.Add(po3);
-
-
-            context.SaveChanges();*/
         }
     }
 }

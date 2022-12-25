@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Utopia2._0.Data;
-using Utopia2._0.Models;
+using Utopia2._0.DAL.Data;
+using Utopia2._0.DAL.Models;
 
 namespace Utopia2._0.Controllers
 {
@@ -14,87 +14,205 @@ namespace Utopia2._0.Controllers
     [ApiController]
     public class QuestionsController : ControllerBase
     {
-        private readonly UtopiaContext _context;
+        private readonly IUnitOfWork _uow;
 
-        public QuestionsController(UtopiaContext context)
+        public QuestionsController(IUnitOfWork uow)
         {
-            _context = context;
+            _uow = uow;
         }
 
-
-        [HttpGet("GetEscapeRoom/{buildingId}")]
-        public async Task<ActionResult<IEnumerable<ApiQuestion>>> GetEscapeRoom(int buildingId)
+        // GET: api/Questions
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Question>>> GetQuestions()
         {
-            var questions = await _context.Questions
-                .Where(q => q.BuildingId == buildingId)
-                .Select(q => new ApiQuestion
-                {
-                    Id = q.Id,
-                    TextualQuestion = q.TextualQuestion,
-                    Answers = q.MultipleChoiceAnswers.Select(m => new ApiMultipleChoiceAnswer { Id = m.Id, TextualAnswer = m.TextualAnswer, Correct = m.Correct  }).ToList()
-                })
-                .ToListAsync();
+            var questions = await _uow.QuestionRepository.GetAllAsync();
+            return questions.ToList();
+        }
 
-            if (questions == null)
+        // GET: api/Questions/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Question>> GetQuestion(int id)
+        {
+            var question = await _uow.QuestionRepository.GetByIDAsync(id);
+
+            if (question == null)
             {
                 return NotFound();
             }
 
-            return questions;
+            return question;
         }
 
-        [HttpPost("PostAnswers")]
-        public async Task<ActionResult<ApiCorrectAnswersAndPoints>> PostCompany([FromBody] ApiAnswer apiAnswer)
+        // PUT: api/Questions/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutQuestion(int id, Question question)
         {
-            var points = 0;
 
-            var person = await _context.Persons
-                .Where(p => (p.RandomKey == apiAnswer.PersonalKey) && (p.Username == apiAnswer.UserName))
-                .FirstOrDefaultAsync();
-
-            //find lineId of the questions that you filled in
-            var lineId = _context.MultipleChoiceAnswers
-                    .Where(m => m.Id == apiAnswer.MultipleChoiceAnswerIds.FirstOrDefault())
-                    .FirstOrDefaultAsync()
-                    .Result
-                    .Question
-                    .Building
-                    .LineId;
-
-            var DidThisPersonAlreadyAnswerQuestionsOnThisLine =
-                _context.Answers
-                .Where(a => a.PersonId == person.Id)
-                .Where(a => a.MultipleChoiceAnswer.Question.Building.LineId == lineId)
-                .Any();
-
-            foreach (int multipleChoiceAnswerId in apiAnswer.MultipleChoiceAnswerIds)
+            if (id != question.Id)
             {
-                _context.Answers.Add(new Answer { MultipleChoiceAnswerId = multipleChoiceAnswerId, PersonId = person.Id });
-                await _context.SaveChangesAsync();
+                return BadRequest();
+            }
 
+            _uow.QuestionRepository.Update(question);
 
-                //check if answer is correct
-                var isCorrect = _context.MultipleChoiceAnswers
-                    .Where(m => m.Id == multipleChoiceAnswerId)
-                    .FirstOrDefaultAsync()
-                    .Result
-                    .Correct;
-                if (isCorrect)
+            try
+            {
+                await _uow.SaveAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!QuestionExists(id))
                 {
-                    points++;
+                    return NotFound();
                 }
-
+                else
+                {
+                    throw;
+                }
             }
-                        
-
-            if (!DidThisPersonAlreadyAnswerQuestionsOnThisLine)
-            {
-                //add bonus factor x2
-                points *= 2;
-            }
-
-            return new ApiCorrectAnswersAndPoints { CorrectAnswerIds = { 1, 2, 3 }, points = points};
+            return NoContent();
         }
+
+        // POST: api/Questions
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public async Task<ActionResult<Question>> PostQuestion(Question question)
+        {
+            _uow.QuestionRepository.Insert(question);
+            await _uow.SaveAsync();
+
+            return CreatedAtAction("GetQuestion", new { id = question.Id }, question);
+        }
+
+        // DELETE: api/Questions/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteQuestion(int id)
+        {
+            var question = await _uow.QuestionRepository.GetByIDAsync(id);
+            if (question == null)
+            {
+                return NotFound();
+            }
+
+            _uow.QuestionRepository.Delete(id);
+            await _uow.SaveAsync();
+
+            return NoContent();
+        }
+
+        private bool QuestionExists(int id)
+        {
+            return _uow.QuestionRepository.Get(e => e.Id == id).Any();
+        }
+
+
+        // GET: api/Questions/5/multiplechoiceanswers                             // Returns a list with one object!
+        [HttpGet("{id}/multiplechoiceanswers")]
+        public async Task<ActionResult<IEnumerable<Question>>> GetSingleQuestionMultipleChoiceAnswers(int id)
+        {
+
+            var question = await _uow.QuestionRepository.GetAsync(
+             includes: q => q.MultipleChoiceAnswers.Where(m => m.Active == true),
+             filter: q => q.Id == id
+             );
+            return question.ToList();
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //[HttpGet("GetEscapeRoom/{buildingId}")]
+        //public async Task<ActionResult<IEnumerable<ApiQuestion>>> GetEscapeRoom(int buildingId)
+        //{
+        //    var questions = await _context.Questions
+        //        .Where(q => q.BuildingId == buildingId)
+        //        .Select(q => new ApiQuestion
+        //        {
+        //            Id = q.Id,
+        //            TextualQuestion = q.TextualQuestion,
+        //            Answers = q.MultipleChoiceAnswers.Select(m => new ApiMultipleChoiceAnswer { Id = m.Id, TextualAnswer = m.TextualAnswer, Correct = m.Correct }).ToList()
+        //        })
+        //        .ToListAsync();
+
+        //    if (questions == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return questions;
+        //}
+
+        //[HttpPost("PostAnswers")]
+        //public async Task<ActionResult<ApiCorrectAnswersAndPoints>> PostCompany([FromBody] ApiAnswer apiAnswer)
+        //{
+        //    var points = 0;
+
+        //    var person = await _context.Persons
+        //        .Where(p => (p.RandomKey == apiAnswer.PersonalKey) && (p.Username == apiAnswer.UserName))
+        //        .FirstOrDefaultAsync();
+
+        //    //find lineId of the questions that you filled in
+        //    var lineId = _context.MultipleChoiceAnswers
+        //            .Where(m => m.Id == apiAnswer.MultipleChoiceAnswerIds.FirstOrDefault())
+        //            .FirstOrDefaultAsync()
+        //            .Result
+        //            .Question
+        //            .Building
+        //            .LineId;
+
+        //    var DidThisPersonAlreadyAnswerQuestionsOnThisLine =
+        //        _context.Answers
+        //        .Where(a => a.PersonId == person.Id)
+        //        .Where(a => a.MultipleChoiceAnswer.Question.Building.LineId == lineId)
+        //        .Any();
+
+        //    foreach (int multipleChoiceAnswerId in apiAnswer.MultipleChoiceAnswerIds)
+        //    {
+        //        _context.Answers.Add(new Answer { MultipleChoiceAnswerId = multipleChoiceAnswerId, PersonId = person.Id });
+        //        await _context.SaveChangesAsync();
+
+
+        //        //check if answer is correct
+        //        var isCorrect = _context.MultipleChoiceAnswers
+        //            .Where(m => m.Id == multipleChoiceAnswerId)
+        //            .FirstOrDefaultAsync()
+        //            .Result
+        //            .Correct;
+        //        if (isCorrect)
+        //        {
+        //            points++;
+        //        }
+
+        //    }
+
+
+        //    if (!DidThisPersonAlreadyAnswerQuestionsOnThisLine)
+        //    {
+        //        //add bonus factor x2
+        //        points *= 2;
+        //    }
+
+        //    return new ApiCorrectAnswersAndPoints { CorrectAnswerIds = { 1, 2, 3 }, points = points };
+        //}
 
 
 
