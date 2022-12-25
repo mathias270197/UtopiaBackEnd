@@ -22,8 +22,6 @@ namespace Utopia2._0.DAL
         static int graduateProgramCounter = 0;
         static int questionCounter = 0;
         static int multipleChoiceAnswerCounter = 0;
-        // static int personCounter = 0;
-        // static int answerCounter = 0;
 
         static Random rd = new Random();
 
@@ -126,7 +124,6 @@ namespace Utopia2._0.DAL
             for (int p = 1; p <= nrOfPersons; p++)
             {
                 // Define the index of the person (might not match with the real index!)
-                // personCounter++;
                 int randomNumber = rd.Next(1000000, 9999999);
                 string random = randomNumber.ToString();
                 Person person = new Person { Username = "Person " + p, Userkey = random };
@@ -140,7 +137,6 @@ namespace Utopia2._0.DAL
                 for (int g = 1; g <= randomNumberOfGraduateProgramsToBeDone; g++)
                 {
                     // Define a random graduate program index
-                    //int randomGraduateProgramId = rd.Next(1, nrOfFaculties * nrOfGraduatePrograms);
                     int randomGraduateProgramId = GenerateRandomInt(nrOfFaculties * nrOfGraduatePrograms);
                     var goon = false;
                     while (goon == false)
