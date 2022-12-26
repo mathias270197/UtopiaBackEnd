@@ -15,5 +15,6 @@ namespace Utopia2._0.ApiModels
         public string faculty { get; set; }
         public string userName { get; set; }
         public string userKey { get; set; }
+        public DateTime date { get; set; }
     }
 }

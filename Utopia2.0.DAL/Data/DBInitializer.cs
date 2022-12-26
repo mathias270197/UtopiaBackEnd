@@ -117,57 +117,64 @@ namespace Utopia2._0.DAL
                         }
                     }
                 }   
-            }
+            
             
 
-            // Add persons
-            for (int p = 1; p <= nrOfPersons; p++)
-            {
-                // Define the index of the person (might not match with the real index!)
-                int randomNumber = rd.Next(1000000, 9999999);
-                string random = randomNumber.ToString();
-                Person person = new Person { Username = "Person " + p, Userkey = random };
-                context.Add(person);
-                context.SaveChanges();
-
-                List<int> graduateProgramsDone = new List<int>();
-
-                // Take a random number of graduate programs 
-                var randomNumberOfGraduateProgramsToBeDone = rd.Next(nrOfFaculties * nrOfGraduatePrograms / 2);
-                for (int g = 1; g <= randomNumberOfGraduateProgramsToBeDone; g++)
+                // Add persons
+                for (int p = 1; p <= nrOfPersons; p++)
                 {
-                    // Define a random graduate program index
-                    int randomGraduateProgramId = GenerateRandomInt(nrOfFaculties * nrOfGraduatePrograms);
-                    var goon = false;
-                    while (goon == false)
+                    // Define the index of the person (might not match with the real index!)
+                    int randomNumber = rd.Next(1000000, 9999999);
+                    string random = randomNumber.ToString();
+                    Person person = new Person { Username = "Person " + p, Userkey = random };
+                    context.Add(person);
+                    context.SaveChanges();
+
+                    List<int> graduateProgramsDone = new List<int>();
+
+                    // Take a random number of graduate programs 
+                    var randomNumberOfGraduateProgramsToBeDone = rd.Next(nrOfFaculties * nrOfGraduatePrograms / 2);
+                    for (int g = 1; g <= randomNumberOfGraduateProgramsToBeDone; g++)
                     {
-
-                        // Check if the ID is already done or not
-                        if (graduateProgramsDone.Contains(randomGraduateProgramId) == true)
+                        // Define a random graduate program index
+                        int randomGraduateProgramId = GenerateRandomInt(nrOfFaculties * nrOfGraduatePrograms);
+                        var goon = false;
+                        while (goon == false)
                         {
-                            // This graduate program is already done. So we need to select another ID
-                            randomGraduateProgramId = GenerateRandomInt(nrOfFaculties * nrOfGraduatePrograms);
-                            goon = false;
+
+                            // Check if the ID is already done or not
+                            if (graduateProgramsDone.Contains(randomGraduateProgramId) == true)
+                            {
+                                // This graduate program is already done. So we need to select another ID
+                                randomGraduateProgramId = GenerateRandomInt(nrOfFaculties * nrOfGraduatePrograms);
+                                goon = false;
+                            }
+                            else
+                            {
+                                // This graduate program is not done yet. So it is a valid choice.
+                                graduateProgramsDone.Add(randomGraduateProgramId);
+                                goon = true;
+                            }
                         }
-                        else
+
+                        // Answer all the questions for that random graduate program
+                        for (int q = 1; q <= nrOfQuestions; q++)
                         {
-                            // This graduate program is not done yet. So it is a valid choice.
-                            graduateProgramsDone.Add(randomGraduateProgramId);
-                            goon = true;
+                            //Create random date between 1jan2022 and today
+                            DateTime start = new DateTime(2021, 1, 1);
+                            Random gen = new Random();
+                            int range = (DateTime.Today - start).Days;
+                            DateTime date = start.AddDays(gen.Next(range));
+
+
+                            int startId = ((randomGraduateProgramId - 1) * nrOfQuestions * nrOfMultipleChoiceAnswers) + ((q - 1) * nrOfMultipleChoiceAnswers) + 1;
+                            int finalId = startId + nrOfMultipleChoiceAnswers - 1;
+
+                            Answer answer = new Answer { MultipleChoiceAnswerId = rd.Next(startId, finalId), PersonId = p, Date = date };
+                            context.Add(answer);
+                            context.SaveChanges();
+
                         }
-                    }
-
-                    // Answer all the questions for that random graduate program
-                    for (int q = 1; q <= nrOfQuestions; q++)
-                    {
-
-                        int startId = ((randomGraduateProgramId - 1) * nrOfQuestions * nrOfMultipleChoiceAnswers) + ((q - 1) * nrOfMultipleChoiceAnswers) + 1;
-                        int finalId = startId + nrOfMultipleChoiceAnswers - 1;
-
-                        Answer answer = new Answer { MultipleChoiceAnswerId = rd.Next(startId, finalId), PersonId = p, Date = DateTime.Parse("2022-09-01") };
-                        context.Add(answer);
-                        context.SaveChanges();
-
                     }
                 }
             }
