@@ -14,12 +14,10 @@ namespace Utopia2._0.Controllers
     public class GraduateProgramsController : ControllerBase
     {
         private readonly IUnitOfWork _uow;
-        private readonly DataContext _context;
 
-        public GraduateProgramsController(IUnitOfWork uow, DataContext context)
+        public GraduateProgramsController(IUnitOfWork uow)
         {
             _uow = uow;
-            _context = context;
         }
 
         // GET: api/GraduatePrograms
@@ -124,17 +122,10 @@ namespace Utopia2._0.Controllers
         public async Task<ActionResult<IEnumerable<GraduateProgram>>> GetSingleGraduateProgramMultipleChoiceAnswers(int id)
         {
 
-
-            //var graduateProgram = await _uow.GraduateProgramRepository.GetAsync(
-            //    includes: g => g.Questions.Where(q => q.Active == true),
-            //    filter: g => g.Id == id
-            //    );
-
-            var graduateProgram = _context.GraduatePrograms
+            var graduateProgram = await _uow.GraduateProgramRepository.AllQuery()
+                .Include(g => g.Questions).ThenInclude(q => q.MultipleChoiceAnswers)
                 .Where(g => g.Id == id)
-                .Include(g => g.Questions.Where(q => q.Active == true))
-                .ThenInclude(q => q.MultipleChoiceAnswers)
-                .ToList();
+                .ToListAsync();
 
             if (graduateProgram == null)
             {

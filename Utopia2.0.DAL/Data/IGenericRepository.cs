@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Utopia2._0.DAL.Data
 {
-    interface IRepository<T>
+    interface IGenericRepository<T>
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetByIDAsync(int id);
+        IQueryable<T> AllQuery();
         void Insert(T obj);
         void Delete(int id);
         void Update(T obj);
