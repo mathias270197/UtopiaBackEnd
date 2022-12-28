@@ -14,12 +14,10 @@ namespace Utopia2._0.Controllers
     public class PersonsController : ControllerBase
     {
         private readonly IUnitOfWork _uow;
-        private readonly DataContext _context;
 
-        public PersonsController(IUnitOfWork uow, DataContext context)
+        public PersonsController(IUnitOfWork uow)
         {
             _uow = uow;
-            _context = context;
         }
 
         // GET: api/Persons
