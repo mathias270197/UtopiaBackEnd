@@ -2,13 +2,13 @@ version: '3.4'
 
 services:
   utopia2.0:
-    container_name: Utopia2.0
+    container_name: Utopia2.0_1
     build:
       labels:
         com.microsoft.created-by: "visual-studio"
         com.microsoft.visual-studio.project-name: "Utopia2.0"
     volumes:
-      - C:\Users\stijn\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\bosma\vsdbg\vs2017u5:/remote_debugger:rw
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
 

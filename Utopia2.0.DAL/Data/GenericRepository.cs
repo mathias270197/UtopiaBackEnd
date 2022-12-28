@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Utopia2._0.DAL.Data
 {
-    public class GenericRepository<T> : IRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
 
         private DataContext _context;
@@ -80,6 +80,11 @@ namespace Utopia2._0.DAL.Data
         {
             T existing = table.Find(id);
             table.Remove(existing);
+        }
+
+        public virtual IQueryable<T> AllQuery()
+        {
+            return table.AsQueryable<T>();
         }
 
 
