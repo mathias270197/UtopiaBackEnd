@@ -1,12 +1,14 @@
-﻿//using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
-//namespace Utopia2._0.Controllers
-//{
-//    public class ApiAnswer
-//    {
-//        public List<int> MultipleChoiceAnswerIds { get; set; }
-//        public string UserName { get; set; }
-//        public string PersonalKey { get; set; }
+namespace Utopia2._0.Controllers
+{
+    public class ApiAnswer
+    {
+        public int MultipleChoiceAnswerId { get; set; }
+        public ApiPerson Person { get; set; }
 
-//    }
-//}
+        public DateTime Date { get; set; }
+
+    }
+}
