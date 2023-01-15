@@ -78,8 +78,37 @@ namespace Utopia2._0.Controllers
         // POST: api/Answers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Answer>> PostAnswer(Answer answer)
+        public async Task<ActionResult<Answer>> PostAnswer(ApiAnswer apiAnswer)
         {
+            var answer = new Answer ();
+            answer.MultipleChoiceAnswerId = apiAnswer.MultipleChoiceAnswerId;
+            
+            var ThisPersonAlreadyExists =
+                   _uow.PersonRepository.AllQuery()
+                   .Where(p => (p.Userkey == apiAnswer.Person.PersonalKey) && (p.Username == apiAnswer.Person.UserName))
+                   .Any();
+
+            if (! ThisPersonAlreadyExists)
+            {
+                //create new person
+                var newPerson = new Person ();
+                newPerson.Username = apiAnswer.Person.UserName;
+                newPerson.Userkey = apiAnswer.Person.PersonalKey;
+                _uow.PersonRepository.Insert(newPerson);
+                answer.PersonId = newPerson.Id;
+            }
+            else
+            {
+                //lookup person
+                var person = _uow.PersonRepository.AllQuery()
+                                .Where(p => (p.Userkey == apiAnswer.Person.PersonalKey) && (p.Username == apiAnswer.Person.UserName))
+                                .FirstOrDefault();
+
+                answer.PersonId = person.Id;
+            }
+
+            answer.Date = DateTime.Today;
+
             _uow.AnswerRepository.Insert(answer);
             await _uow.SaveAsync();
 
