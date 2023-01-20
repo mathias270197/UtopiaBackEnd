@@ -4,6 +4,7 @@ using System.Linq;
 using Utopia2._0.DAL.Models;
 using Utopia2._0.DAL.Data;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Utopia2._0.DAL
 {
@@ -11,18 +12,28 @@ namespace Utopia2._0.DAL
     {
 
         // Define the number of objects
-        static int nrOfFaculties = 5;
-        static int nrOfGraduatePrograms = 5;           // Per faculty
-        static int nrOfQuestions = 10;                 // Per graduate program
-        static int nrOfMultipleChoiceAnswers = 4;      // Per question
+        const int nrOfFaculties = 5;
+        const int nrOfGraduatePrograms = 7;           // Per faculty
+        const int nrOfQuestions = 10;                 // Per graduate program
+        const int nrOfMultipleChoiceAnswers = 4;      // Per question
         static int nrOfPersons = 20;
+       
 
         // Define the counters that start from zero
         static int facultyCounter = 0;
         static int graduateProgramCounter = 0;
         static int questionCounter = 0;
         static int multipleChoiceAnswerCounter = 0;
+        static int indexcounter = 0;
 
+        static string[] FacultyArray = new string[nrOfFaculties] { "ICT", "Economie", "Communicatie", "Talen", "Wetenschappen" };
+        static string[] GraduateProgramArray1 = new string[nrOfGraduatePrograms] { "Application development", "Applied Artificial Intelligence", "Applied Computer Science", "Cloud and Cyber Security", "Digital Experience Design", "International Digital Product Architect", "Internet of Things" };
+        static string[] GraduateProgramArray2 = new string[nrOfGraduatePrograms] { "Accountancy-Fiscaliteit", "Applied Data Intelligence", "Arbeids- en Organisatiepsychologie", "Branding en Advertising", "Business en Management", "International Media and Entertainment Business", "Logistiek Management" };
+        static string[] GraduateProgramArray3 = new string[nrOfGraduatePrograms] { "Communicatie", "Digital Media Manager", "Eventmanagement", "Health Care Management", "International Business and Trade", "Internationale researchjournalistiek", "Rechtspraktijk" };
+        static string[] GraduateProgramArray4 = new string[nrOfGraduatePrograms] { "Business en Ondernemen", "Talen en Communicatie", "Bedrijfsmanagement", "Journalistiek", "Organisatie en Management", "Toerisme en Recreatiemanagement in verkort traject", "Human Resources" };
+        static string[] GraduateProgramArray5 = new string[nrOfGraduatePrograms] { "Chemie", "Biochemie", "Dierenzorg", "Duurzame Energie en Klimaat", "Elektrische Energie", "Ergotherapie", "Landbouw" };
+        static string[] QuestionArray = new string[nrOfQuestions] { "Het antwoord is antwoord 1", "Het antwoord is antwoord 2", "Het antwoord is antwoord 3", "Het antwoord is antwoord 4", "Het antwoord is antwoord 1", "Het antwoord is antwoord 2", "Het antwoord is antwoord 3", "Het antwoord is antwoord 4", "Het antwoord is antwoord 1", "Het antwoord is antwoord 2" };
+        static string[] MultpleChoiceAnswerArray = new string[nrOfMultipleChoiceAnswers] { "Dit is antwoord a", "Dit is antwoord b", "Dit is antwoord c", "Dit is antwoord d" };
         static Random rd = new Random();
 
         public static int GenerateRandomInt(int range) 
@@ -36,7 +47,7 @@ namespace Utopia2._0.DAL
             context.Database.EnsureCreated();
 
 
-            //// Loops to clear the context if necessary. Put these lines in comment if you do not want to delete the DataContext content.
+            // loops to clear the context if necessary. put these lines in comment if you do not want to delete the datacontext content.
             //foreach (var item in context.Faculties)
             //{
             //    context.Faculties.Remove(item);
@@ -63,7 +74,76 @@ namespace Utopia2._0.DAL
             if (!context.Faculties.Any())
             {
                 // Add faculties
-                for (int f = 1; f <= nrOfFaculties; f++)
+                for (int f = 1; f<=nrOfFaculties; f++)
+                {
+                    facultyCounter++;
+                    Faculty faculty = new Faculty { Name = FacultyArray[f-1], Active = true };
+                    context.Add(faculty);
+                    context.SaveChanges();
+                    for (int g = 1; g<=nrOfGraduatePrograms; g++)
+                    {
+                        graduateProgramCounter++;
+                        if(facultyCounter == 1)
+                        {
+                            GraduateProgram graduateProgram = new GraduateProgram { Name = GraduateProgramArray1[g - 1], Active = true, FacultyId = facultyCounter };
+                            context.Add(graduateProgram);
+                            context.SaveChanges();
+                        }
+                        if(facultyCounter == 2)
+                        {
+                            GraduateProgram graduateProgram = new GraduateProgram { Name = GraduateProgramArray2[g - 1], Active = true, FacultyId = facultyCounter };
+                            context.Add(graduateProgram);
+                            context.SaveChanges();
+                        }
+                        if(facultyCounter == 3)
+                        {
+                            GraduateProgram graduateProgram = new GraduateProgram { Name = GraduateProgramArray3[g - 1], Active = true, FacultyId = facultyCounter };
+                            context.Add(graduateProgram);
+                            context.SaveChanges();
+                        }
+                        if(facultyCounter == 4)
+                        {
+                            GraduateProgram graduateProgram = new GraduateProgram { Name = GraduateProgramArray4[g - 1], Active = true, FacultyId = facultyCounter };
+                            context.Add(graduateProgram);
+                            context.SaveChanges();
+                        }
+                        if(facultyCounter == 5)
+                        {
+                            GraduateProgram graduateProgram = new GraduateProgram { Name = GraduateProgramArray5[g - 1], Active = true, FacultyId = facultyCounter };
+                            context.Add(graduateProgram);
+                            context.SaveChanges();
+                        }
+                        for (int q = 1; q <= nrOfQuestions; q++)
+                            {
+                            if (indexcounter > 4)
+                            {
+                                indexcounter = 0;
+                            };
+                            questionCounter++;
+                            indexcounter++;
+                            Question question = new Question { TextualQuestion = QuestionArray[q-1], Active = true, GraduateProgramId = graduateProgramCounter };
+                            context.Add(question);
+                            context.SaveChanges();
+                            for (int m = 1; m <= nrOfMultipleChoiceAnswers; m++)
+                            {
+                                bool correct;
+                                //multipleChoiceAnswerCounter++;
+                                if (m == indexcounter)
+                                {
+                                    correct = true;
+                                } else
+                                {
+                                    correct = false;
+                                };
+                                MultipleChoiceAnswer multipleChoiceAnswer = new MultipleChoiceAnswer { TextualAnswer = MultpleChoiceAnswerArray[m - 1], Active = true, Correct = correct, QuestionId = questionCounter };
+                                context.Add(multipleChoiceAnswer);
+                                context.SaveChanges();
+                            }
+                        }
+
+                    }
+                }
+                /*for (int f = 1; f <= nrOfFaculties; f++)
                 {
                     // Define the index of the faculty (might not match with the real index!)
                     facultyCounter++;
@@ -115,8 +195,8 @@ namespace Utopia2._0.DAL
 
                             }
                         }
-                    }
-                }   
+                    }*/
+                //}   
             
             
 
