@@ -27,11 +27,11 @@ namespace Utopia2._0.DAL
         static int indexcounter = 0;
 
         static string[] FacultyArray = new string[nrOfFaculties] { "ICT", "Economie", "Communicatie", "Talen", "Wetenschappen" };
-        static string[] GraduateProgramArray1 = new string[nrOfGraduatePrograms] { "Application development", "Applied Artificial Intelligence", "Applied Computer Science", "Cloud and Cyber Security", "Digital Experience Design", "International Digital Product Architect", "Internet of Things" };
-        static string[] GraduateProgramArray2 = new string[nrOfGraduatePrograms] { "Accountancy-Fiscaliteit", "Applied Data Intelligence", "Arbeids- en Organisatiepsychologie", "Branding en Advertising", "Business en Management", "International Media and Entertainment Business", "Logistiek Management" };
-        static string[] GraduateProgramArray3 = new string[nrOfGraduatePrograms] { "Communicatie", "Digital Media Manager", "Eventmanagement", "Health Care Management", "International Business and Trade", "Internationale researchjournalistiek", "Rechtspraktijk" };
-        static string[] GraduateProgramArray4 = new string[nrOfGraduatePrograms] { "Business en Ondernemen", "Talen en Communicatie", "Bedrijfsmanagement", "Journalistiek", "Organisatie en Management", "Toerisme en Recreatiemanagement in verkort traject", "Human Resources" };
-        static string[] GraduateProgramArray5 = new string[nrOfGraduatePrograms] { "Chemie", "Biochemie", "Dierenzorg", "Duurzame Energie en Klimaat", "Elektrische Energie", "Ergotherapie", "Landbouw" };
+        static string[] GraduateProgramArray1 = new string[nrOfGraduatePrograms] { "Application development", "Applied Artificial Intelligence", "Applied Computer Science", "Cloud and Cyber Security", "Digital Experience Design", "Digital Product Architect", "Internet of Things" };
+        static string[] GraduateProgramArray2 = new string[nrOfGraduatePrograms] { "Accountancy-Fiscaliteit", "Applied Data Intelligence", "Pedagogie", "Branding en Advertising", "Business en Management", "Media and Business", "Logistiek Management" };
+        static string[] GraduateProgramArray3 = new string[nrOfGraduatePrograms] { "Communicatie", "Digital Media Manager", "Eventmanagement", "Health Care Management", "International Business", "Taal en letterkunde", "Rechtspraktijk" };
+        static string[] GraduateProgramArray4 = new string[nrOfGraduatePrograms] { "Business en Ondernemen", "Talen en Communicatie", "Bedrijfsmanagement", "Journalistiek", "Organisatie en Management", "Toerisme", "Human Resources" };
+        static string[] GraduateProgramArray5 = new string[nrOfGraduatePrograms] { "Chemie", "Biochemie", "Dierenzorg", "Energie en Klimaat", "Elektrische Energie", "Ergotherapie", "Landbouw" };
         static string[] QuestionArray = new string[nrOfQuestions] { "Het antwoord is antwoord 1", "Het antwoord is antwoord 2", "Het antwoord is antwoord 3", "Het antwoord is antwoord 4", "Het antwoord is antwoord 1", "Het antwoord is antwoord 2", "Het antwoord is antwoord 3", "Het antwoord is antwoord 4", "Het antwoord is antwoord 1", "Het antwoord is antwoord 2" };
         static string[] MultpleChoiceAnswerArray = new string[nrOfMultipleChoiceAnswers] { "Dit is antwoord a", "Dit is antwoord b", "Dit is antwoord c", "Dit is antwoord d" };
         static Random rd = new Random();
