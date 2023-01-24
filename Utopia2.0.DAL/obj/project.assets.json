@@ -5798,19 +5798,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mathi\\.nuget\\packages\\": {}
+    "C:\\Users\\bosma\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Utopia\\backend\\clone6\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj",
+      "projectUniqueName": "D:\\OneDrive\\OHO\\Jaar4\\Project40\\Project_Backend\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj",
       "projectName": "Utopia2.0.DAL",
-      "projectPath": "D:\\Utopia\\backend\\clone6\\UtopiaBackEnd\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj",
-      "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
-      "outputPath": "D:\\Utopia\\backend\\clone6\\UtopiaBackEnd\\Utopia2.0.DAL\\obj\\",
+      "projectPath": "D:\\OneDrive\\OHO\\Jaar4\\Project40\\Project_Backend\\Utopia2.0.DAL\\Utopia2.0.DAL.csproj",
+      "packagesPath": "C:\\Users\\bosma\\.nuget\\packages\\",
+      "outputPath": "D:\\OneDrive\\OHO\\Jaar4\\Project40\\Project_Backend\\Utopia2.0.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\bosma\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
