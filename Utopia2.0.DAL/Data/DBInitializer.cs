@@ -246,10 +246,11 @@ namespace Utopia2._0.DAL
                             int range = (DateTime.Today - start).Days;
                             DateTime date = start.AddDays(gen.Next(range));
 
-
+                            // Define the start and end ID of the answer
                             int startId = ((randomGraduateProgramId - 1) * nrOfQuestions * nrOfMultipleChoiceAnswers) + ((q - 1) * nrOfMultipleChoiceAnswers) + 1;
                             int finalId = startId + nrOfMultipleChoiceAnswers - 1;
 
+                            // Add the answer
                             Answer answer = new Answer { MultipleChoiceAnswerId = rd.Next(startId, finalId), PersonId = p, Date = date };
                             context.Add(answer);
                             context.SaveChanges();
