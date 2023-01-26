@@ -1,0 +1,1097 @@
+openapi: 3.0.1
+info:
+  title: Utopia2._0
+  version: v1
+paths:
+  /api/Answers:
+    get:
+      tags:
+        - Answers
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Answer'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Answer'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Answer'
+    post:
+      tags:
+        - Answers
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Answer'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Answer'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Answer'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Answer'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Answer'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Answer'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Answer'
+  /api/Answers/{id}:
+    get:
+      tags:
+        - Answers
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Answer'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Answer'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Answer'
+    put:
+      tags:
+        - Answers
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Answer'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Answer'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Answer'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Answer'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Answers
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Bi:
+    get:
+      tags:
+        - Bi
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PowerBiInput'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PowerBiInput'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PowerBiInput'
+  /api/Faculties:
+    get:
+      tags:
+        - Faculties
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Faculty'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Faculty'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Faculty'
+    post:
+      tags:
+        - Faculties
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Faculty'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Faculty'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Faculty'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Faculty'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Faculty'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Faculty'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Faculty'
+  /api/Faculties/{id}:
+    get:
+      tags:
+        - Faculties
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Faculty'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Faculty'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Faculty'
+    put:
+      tags:
+        - Faculties
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Faculty'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Faculty'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Faculty'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Faculty'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Faculties
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Faculties/graduateprograms:
+    get:
+      tags:
+        - Faculties
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Faculty'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Faculty'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Faculty'
+  /api/Faculties/{id}/graduateprograms:
+    get:
+      tags:
+        - Faculties
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Faculty'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Faculty'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Faculty'
+  /api/GraduatePrograms:
+    get:
+      tags:
+        - GraduatePrograms
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GraduateProgram'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GraduateProgram'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GraduateProgram'
+    post:
+      tags:
+        - GraduatePrograms
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GraduateProgram'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GraduateProgram'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GraduateProgram'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GraduateProgram'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/GraduateProgram'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraduateProgram'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/GraduateProgram'
+  /api/GraduatePrograms/{id}:
+    get:
+      tags:
+        - GraduatePrograms
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/GraduateProgram'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraduateProgram'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/GraduateProgram'
+    put:
+      tags:
+        - GraduatePrograms
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GraduateProgram'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GraduateProgram'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GraduateProgram'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GraduateProgram'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - GraduatePrograms
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/GraduatePrograms/questions:
+    get:
+      tags:
+        - GraduatePrograms
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GraduateProgram'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GraduateProgram'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GraduateProgram'
+  /api/GraduatePrograms/{id}/multiplechoiceanswers:
+    get:
+      tags:
+        - GraduatePrograms
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GraduateProgram'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GraduateProgram'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GraduateProgram'
+  /api/MultipleChoiceAnswers:
+    get:
+      tags:
+        - MultipleChoiceAnswers
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MultipleChoiceAnswer'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MultipleChoiceAnswer'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MultipleChoiceAnswer'
+    post:
+      tags:
+        - MultipleChoiceAnswers
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/MultipleChoiceAnswer'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MultipleChoiceAnswer'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/MultipleChoiceAnswer'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/MultipleChoiceAnswer'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/MultipleChoiceAnswer'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MultipleChoiceAnswer'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/MultipleChoiceAnswer'
+  /api/MultipleChoiceAnswers/{id}:
+    get:
+      tags:
+        - MultipleChoiceAnswers
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/MultipleChoiceAnswer'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MultipleChoiceAnswer'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/MultipleChoiceAnswer'
+    put:
+      tags:
+        - MultipleChoiceAnswers
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/MultipleChoiceAnswer'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MultipleChoiceAnswer'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/MultipleChoiceAnswer'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/MultipleChoiceAnswer'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - MultipleChoiceAnswers
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Persons:
+    get:
+      tags:
+        - Persons
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+    post:
+      tags:
+        - Persons
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Person'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Person'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Person'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Person'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Person'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+  /api/Persons/{id}:
+    get:
+      tags:
+        - Persons
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Person'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+    put:
+      tags:
+        - Persons
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Person'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Person'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Person'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Person'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Persons
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Persons/{id}/answersviaid:
+    get:
+      tags:
+        - Persons
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+  /api/Persons/{userkey}/answersviauserkey:
+    get:
+      tags:
+        - Persons
+      parameters:
+        - name: userkey
+          in: path
+          required: true
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+  /api/Questions:
+    get:
+      tags:
+        - Questions
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Question'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Question'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Question'
+    post:
+      tags:
+        - Questions
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Question'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Question'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Question'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Question'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Question'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Question'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Question'
+  /api/Questions/{id}:
+    get:
+      tags:
+        - Questions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Question'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Question'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Question'
+    put:
+      tags:
+        - Questions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Question'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Question'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Question'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Question'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Questions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Questions/{id}/multiplechoiceanswers:
+    get:
+      tags:
+        - Questions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Question'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Question'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Question'
+components:
+  schemas:
+    Person:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        username:
+          type: string
+          nullable: true
+        userkey:
+          type: string
+          nullable: true
+        answers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Answer'
+          nullable: true
+      additionalProperties: false
+    Faculty:
+      required:
+        - active
+        - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          minLength: 2
+          type: string
+        active:
+          type: boolean
+        graduatePrograms:
+          type: array
+          items:
+            $ref: '#/components/schemas/GraduateProgram'
+          nullable: true
+      additionalProperties: false
+    GraduateProgram:
+      required:
+        - active
+        - facultyId
+        - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          minLength: 2
+          type: string
+        active:
+          type: boolean
+        facultyId:
+          type: integer
+          format: int32
+        faculty:
+          $ref: '#/components/schemas/Faculty'
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Question'
+          nullable: true
+      additionalProperties: false
+    Question:
+      required:
+        - active
+        - graduateProgramId
+        - textualQuestion
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        textualQuestion:
+          minLength: 2
+          type: string
+        active:
+          type: boolean
+        graduateProgramId:
+          type: integer
+          format: int32
+        graduateProgram:
+          $ref: '#/components/schemas/GraduateProgram'
+        multipleChoiceAnswers:
+          type: array
+          items:
+            $ref: '#/components/schemas/MultipleChoiceAnswer'
+          nullable: true
+      additionalProperties: false
+    MultipleChoiceAnswer:
+      required:
+        - active
+        - correct
+        - questionId
+        - textualAnswer
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        textualAnswer:
+          minLength: 2
+          type: string
+        active:
+          type: boolean
+        correct:
+          type: boolean
+        questionId:
+          type: integer
+          format: int32
+        question:
+          $ref: '#/components/schemas/Question'
+        answers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Answer'
+          nullable: true
+      additionalProperties: false
+    Answer:
+      required:
+        - multipleChoiceAnswerId
+        - personId
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        multipleChoiceAnswerId:
+          type: integer
+          format: int32
+        personId:
+          type: integer
+          format: int32
+        date:
+          type: string
+          format: date
+        person:
+          $ref: '#/components/schemas/Person'
+        multipleChoiceAnswer:
+          $ref: '#/components/schemas/MultipleChoiceAnswer'
+      additionalProperties: false
+    PowerBiInput:
+      type: object
+      properties:
+        answer:
+          type: string
+          nullable: true
+        isAnswerCorrect:
+          type: boolean
+        question:
+          type: string
+          nullable: true
+        graduateProgram:
+          type: string
+          nullable: true
+        faculty:
+          type: string
+          nullable: true
+        userName:
+          type: string
+          nullable: true
+        userKey:
+          type: string
+          nullable: true
+        date:
+          type: string
+          format: date-time
+      additionalProperties: false
